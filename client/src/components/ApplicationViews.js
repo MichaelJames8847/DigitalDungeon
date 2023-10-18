@@ -2,7 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import { AuthorizedRoute } from "./auth/AuthorizedRoute";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
-import UserRegisterPreferences from "./userpreferences/UserRegisterPreferences";
+import UserRegisterPreferences from "./users/UserRegisterPreferences";
+import GameCatalog from "./games/GameCatalog";
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
@@ -16,6 +17,15 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
             </AuthorizedRoute>
           }
         />
+        <Route path="games">
+          <Route index
+          element={
+            <AuthorizedRoute loggedInUser={loggedInUser}>
+              <GameCatalog />
+            </AuthorizedRoute>
+          }
+          />
+        </Route>
         <Route
           path="login"
           element={<Login setLoggedInUser={setLoggedInUser} />}
