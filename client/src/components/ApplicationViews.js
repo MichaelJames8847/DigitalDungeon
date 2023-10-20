@@ -5,6 +5,7 @@ import Register from "./auth/Register";
 import UserRegisterPreferences from "./users/UserRegisterPreferences";
 import GameCatalog from "./games/GameCatalog";
 import PlatformList from "./platforns/PlatformList";
+import GameDetails from "./games/GameDetails";
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
@@ -23,6 +24,13 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           element={
             <AuthorizedRoute loggedInUser={loggedInUser}>
               <GameCatalog />
+            </AuthorizedRoute>
+          }
+          />
+          <Route path=":id"
+          element={
+            <AuthorizedRoute loggedInUser={loggedInUser}>
+              <GameDetails />
             </AuthorizedRoute>
           }
           />

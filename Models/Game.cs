@@ -27,6 +27,6 @@ public class Game
     public List<UserCategory> UserCategories { get; set; }
     public List<UserFavoriteGame> UserFavoriteGames { get; set; }
     public List<UserProfile> UserProfiles { get; set; }
-    [JsonPropertyName("platforms")]
+    public List<PlatformGame> PlatformGames { get; set; }
     public List<Platform> Platforms { get; set; }
 }
