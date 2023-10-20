@@ -33,6 +33,10 @@ return (
                         Game Catalog
                     </NavLink>
                 </NavItem>
+                <NavItem onClick={() => setOpen(false)} />
+                <NavLink tag={RRNavLink} to ="/platforms">
+                    Platforms
+                </NavLink>
             </Nav>
             </Collapse>
             <Button

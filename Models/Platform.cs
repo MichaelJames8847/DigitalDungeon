@@ -13,5 +13,6 @@ public class Platform
     public DateTime? EndYear { get; set; }
     public List<Game> Games { get; set; }
     public List<UserFavoriteGame> UserFavoriteGames { get; set; }
+    public List<PlatformGame> PlatformGames { get; set; }
     
 }

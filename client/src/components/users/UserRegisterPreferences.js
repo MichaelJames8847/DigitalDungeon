@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { getGenres } from "../../managers/genreManager";
-import { getCategories } from "../../managers/categoryController";
 import { Button, FormGroup, Input, Label } from "reactstrap";
 import { useNavigate } from "react-router-dom";
+import { getCategories } from "../../managers/categoryManager";
 
 // upon registration
 export default function UserRegisterPreferences() {

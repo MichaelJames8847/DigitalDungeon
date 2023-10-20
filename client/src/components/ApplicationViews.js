@@ -4,6 +4,7 @@ import Login from "./auth/Login";
 import Register from "./auth/Register";
 import UserRegisterPreferences from "./users/UserRegisterPreferences";
 import GameCatalog from "./games/GameCatalog";
+import PlatformList from "./platforns/PlatformList";
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
@@ -22,6 +23,15 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           element={
             <AuthorizedRoute loggedInUser={loggedInUser}>
               <GameCatalog />
+            </AuthorizedRoute>
+          }
+          />
+        </Route>
+        <Route path="platforms">
+          <Route index
+          element={
+            <AuthorizedRoute loggedInUser={loggedInUser}>
+              <PlatformList />
             </AuthorizedRoute>
           }
           />
