@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { getAllPlatforms } from "../../managers/platformController";
+import { getAllPlatforms } from "../../managers/platformManager";
+import { Link } from "react-router-dom";
 
 export default function PlatformList() {
     const [platforms, setPlatforms] = useState([]);
@@ -15,7 +16,9 @@ export default function PlatformList() {
             {platforms.map((p) => (
                 <div key={`platform-${p.id}`}>
                     <img src={p.image} alt={p.image} />
+                    <Link to={`${p.id}`}>
                     <h3>{p.name}</h3>
+                    </Link>
                 </div>
             ))}
         </article>
