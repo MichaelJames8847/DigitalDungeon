@@ -8,5 +8,7 @@ public class Registration
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string Address { get; set; }
+    public List<Genre> Genres { get; set; }
+    public List<Category> Categories { get; set; }
 
 }

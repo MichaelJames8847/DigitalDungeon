@@ -137,6 +137,7 @@ public class AuthController : ControllerBase
                 Address = registration.Address,
                 IdentityUserId = user.Id,
             });
+
             _dbContext.SaveChanges();
 
             var claims = new List<Claim>

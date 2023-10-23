@@ -15,7 +15,7 @@ export const setUserPreferences = (genres, categories) => {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({ genres, categories }),
-    }).then((res) => res.json());
+    })
 };
 
 export const deleteUser = (userId) => {

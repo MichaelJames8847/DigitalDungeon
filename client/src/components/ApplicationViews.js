@@ -8,6 +8,7 @@ import PlatformList from "./platforns/PlatformList";
 import GameDetails from "./games/GameDetails";
 import PlatformDetails from "./platforns/PlatformDetails";
 import UserProfileList from "./users/UserProfileList";
+import Home from "./Home";
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
@@ -17,7 +18,7 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           index
           element={
             <AuthorizedRoute loggedInUser={loggedInUser}>
-              <p>Digital Dungeon</p>
+              <Home />
             </AuthorizedRoute>
           }
         />

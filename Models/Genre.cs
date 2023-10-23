@@ -9,4 +9,9 @@ public class Genre
     public List<UserGenre> UserGenres { get; set; }
     public List<UserProfile> UserProfiles { get; set; }
     public List<Game> Games { get; set; }
+
+    public static implicit operator int(Genre v)
+    {
+        throw new NotImplementedException();
+    }
 }

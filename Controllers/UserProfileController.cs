@@ -48,53 +48,27 @@ public class UserProfileController : ControllerBase
 
     [HttpPost("preferences")]
     [Authorize]
-    public IActionResult SetPreferences([FromBody] Dictionary<string, List<int>> preferences)
+    public IActionResult SetPreferences(Preferences preferences)
     {
-        var genres = preferences["genres"];
-        var categories = preferences["categories"];
+        var genres = preferences.Genres;
+        var categories = preferences.Categories;
 
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
         var profile = _dbContext.UserProfiles.SingleOrDefault(up => up.IdentityUserId == userId);
 
-        profile.UserGenres.Clear();
-        profile.UserCategories.Clear();
-
-        foreach (var genreId in genres)
+        foreach (var genre in genres)
         {
-            profile.UserGenres.Add(new UserGenre { GenreId = genreId });
+            _dbContext.UserGenres.Add(new UserGenre { GenreId = genre.Id, UserProfileId = profile.Id });
+            
         }
 
-        foreach (var categoryId in categories)
+        foreach (var category in categories)
         {
-            profile.UserCategories.Add(new UserCategory { CategoryId = categoryId });
+            _dbContext.UserCategories.Add(new UserCategory { CategoryId = category.Id, UserProfileId = profile.Id });
         }
 
         _dbContext.SaveChanges();
-        return Ok();
-    }
-
-    [HttpGet("preferences")]
-    [Authorize]
-    public IActionResult GetPreferences()
-    {
-        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        var profile = _dbContext.UserProfiles
-            .Include(up => up.UserGenres)
-            .Include(up => up.UserCategories)
-            .SingleOrDefault(up => up.IdentityUserId == userId);
-
-        if (profile == null)
-        {
-            return NotFound();
-        }
-
-        var preferences = new
-        {
-            Genres = profile.UserGenres.Select(ug => ug.GenreId).ToList(),
-            Categories = profile.UserCategories.Select(uc => uc.CategoryId).ToList()
-        };
-
-        return Ok(preferences);
+        return NoContent();
     }
 
     [HttpGet("{id}")]
