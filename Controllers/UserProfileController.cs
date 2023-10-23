@@ -2,6 +2,7 @@ using System.Security.Claims;
 using DigitalDungeon.Data;
 using DigitalDungeon.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -167,6 +168,38 @@ public class UserProfileController : ControllerBase
        }
 
         return Ok(suggestedGames);
+    }
+
+    [HttpPost("promote/{id}")]
+    [Authorize(Roles = "Admin")]
+    public IActionResult Promote(string id)
+    {
+        IdentityRole role = _dbContext.Roles.SingleOrDefault(r => r.Name == "Admin");
+
+        _dbContext.UserRoles.Add(new IdentityUserRole<string>
+        {
+            RoleId = role.Id,
+            UserId = id
+        });
+        _dbContext.SaveChanges();
+        return NoContent();
+    }
+
+    [HttpPost("demote/{id}")]
+    [Authorize(Roles = "Admin")]
+    public IActionResult Demote(string id)
+    {
+        IdentityRole role = _dbContext.Roles
+            .SingleOrDefault(r => r.Name == "Admin");
+        IdentityUserRole<string> userRole = _dbContext
+            .UserRoles
+            .SingleOrDefault(ur => 
+                ur.RoleId == role.Id &&
+                ur.UserId == id);
+
+        _dbContext.UserRoles.Remove(userRole);
+        _dbContext.SaveChanges();
+        return NoContent();
     }
 
 }

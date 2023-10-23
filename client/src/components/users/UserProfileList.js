@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { deleteUser, getUserProfilesWithRoles } from "../../managers/userProfileManager";
+import { deleteUser, demoteUser, getUserProfilesWithRoles, promoteUser } from "../../managers/userProfileManager";
 import { Button, Table } from "reactstrap";
 import { Link } from "react-router-dom";
 
@@ -13,8 +13,20 @@ export default function UserProfileList() {
     const removeUser = (userId) => {
         deleteUser(userId).then(() => {
             getUserProfilesWithRoles().then(setUserProfiles)
-        })
-    }
+        });
+    };
+
+    const promote = (id) => {
+        promoteUser(id).then(() => {
+            getUserProfilesWithRoles().then(setUserProfiles);
+        });
+    };
+
+    const demote = (id) => {
+        demoteUser(id).then(() => {
+            getUserProfilesWithRoles().then(setUserProfiles);
+        });
+    };
 
     return (
         <>
@@ -42,6 +54,24 @@ export default function UserProfileList() {
                                     onClick={() => removeUser(up.id)}
                                     color="danger">
                                     Remove User
+                                </Button>
+                            </td>
+                            <td>
+                                <Button
+                                color="danger"
+                                onClick={() => {
+                                    demote(up.identityUserId);
+                                }}>
+                                    Demote
+                                </Button>
+                            </td>
+                            <td>
+                                <Button
+                                color="success"
+                                onClick={() => {
+                                    promote(up.identityUserId);
+                                }}>
+                                    Promote
                                 </Button>
                             </td>
                         </tr>

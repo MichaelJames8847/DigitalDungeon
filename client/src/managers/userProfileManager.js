@@ -36,3 +36,15 @@ export const getUserById = (id) => {
     return fetch(`${apiUrl}/${id}`).then((res) => res.json());
 };
 
+export const promoteUser = (userId) => {
+    return fetch(`${apiUrl}/promote/${userId}`, {
+        method: "POST",
+    });
+};
+
+export const demoteUser = (userId) => {
+    return fetch(`${apiUrl}/demote/${userId}`, {
+        method: "POST",
+    });
+};
+
