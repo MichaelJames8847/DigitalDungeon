@@ -1,86 +1,83 @@
-// form component to handle initial user gaming preferences
-
 import { useEffect, useState } from "react";
 import { getGenres } from "../../managers/genreManager";
-import { Button, FormGroup, Input, Label } from "reactstrap";
-import { useNavigate } from "react-router-dom";
 import { getCategories } from "../../managers/categoryManager";
+import { setUserPreferences } from "../../managers/userProfileManager";
+import { useNavigate } from "react-router-dom";
+import { Button, FormGroup, Input, Label } from "reactstrap";
 
-// upon registration
 export default function UserRegisterPreferences() {
     const [genres, setGenres] = useState([]);
     const [categories, setCategories] = useState([]);
     const [selectedGenres, setSelectedGenres] = useState([]);
     const [selectedCategories, setSelectedCategories] = useState([]);
     const navigate = useNavigate();
-    
+
     useEffect(() => {
         getGenres().then(setGenres);
         getCategories().then(setCategories);
-    }, [])
+    }, []);
 
-   const handleGenreChange = (genreId) => {
-    setSelectedGenres((prevGenres) => 
-    prevGenres.includes(genreId)
-    ? prevGenres.filter((id) => id !== genreId)
-    : [...prevGenres, genreId]
-    );
-   };
+    const handleGenreChange = (genreId) => {
+        setSelectedGenres((prevSelectedGenres) => 
+        prevSelectedGenres.includes(genreId)
+        ? prevSelectedGenres.filter((id) => id !== genreId)
+        : [...prevSelectedGenres, genreId]
+        );
+    };
 
    const handleCategoryChange = (categoryId) => {
-    setSelectedCategories((prevCategories) => 
-    prevCategories.includes(categoryId)
-    ? prevCategories.filter((id) => id !== categoryId)
-    : [...prevCategories, categoryId]
+    setSelectedCategories((prevSelectedCategories) => 
+    prevSelectedCategories.includes(categoryId)
+    ? prevSelectedCategories.filter((id) => id !== categoryId)
+    : [...prevSelectedCategories, categoryId]
     );
    };
 
-   const handleSubmit = () => {
-        console.log("Selected Genres:", selectedGenres);
-        console.log("Selected Categories:", selectedCategories);
-        navigate("/")
-   };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const submitGenres = genres.filter((g) => selectedGenres.includes(g.id));
+        const submitCategories = categories.filter((c) => selectedCategories.includes(c.id));
 
-   return (
-    <div className="container" style={{ maxWidth: "500px"}}>
-        <h2>Set Your Prefences!</h2>
-        <FormGroup>
-            <h3>Select Genres</h3>
-            {genres.map((g) => (
-                <FormGroup key={g.id}>
-                    <Label>
-                        <Input
-                            type="checkbox"
-                            id={`genre-${g.id}`}
-                            value={g.id}
-                            checked={selectedGenres.includes(g.id)}
-                            onChange={() => handleGenreChange(g.id)}
+        setUserPreferences(submitGenres, submitCategories).then(() => {
+            navigate("/");
+        });
+    };
+
+    return (
+        <>
+            <FormGroup>
+                <Label>Genres</Label>
+                {genres.map((genre) => (
+                    <FormGroup key={genre.id}>
+                        <Label>
+                            <Input
+                                type="checkbox"
+                                onChange={() => handleGenreChange(genre.id)}
+                                checked={selectedGenres.includes(genre.id)}
                             />
-                            {g.genreName}
-                    </Label>
+                            {genre.genreName}
+                        </Label>
                     </FormGroup>
-            ))}
-        </FormGroup>
-        <FormGroup>
-            <h3>Select Categories</h3>
-            {categories.map((c) => (
-                <FormGroup key={c.id}>
-                    <Label>
-                        <Input
-                            type="checkbox"
-                            id={`category-${c.id}`}
-                            value={c.id}
-                            checked={selectedCategories.includes(c.id)}
-                            onChange={() => handleCategoryChange(c.id)}
+                ))}
+            </FormGroup>
+            <FormGroup>
+                <Label>Categories</Label>
+                {categories.map((category) => (
+                    <FormGroup key={category.id}>
+                        <Label>
+                            <Input
+                                type="checkbox"
+                                onChange={() => handleCategoryChange(category.id)}
+                                checked={selectedCategories.includes(category.id)}
                             />
-                            {c.categoryName}
-                    </Label>
+                            {category.categoryName}
+                        </Label>
                     </FormGroup>
-            ))}
-        </FormGroup>
-        <Button color="primary" onClick={handleSubmit}>
-            Save Preferences
-        </Button>
-    </div>
-   )
+                ))}
+            </FormGroup>
+            <Button color="primary" onClick={handleSubmit}>
+                Save Preferences
+            </Button>
+        </>
+    );
 }

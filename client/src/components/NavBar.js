@@ -37,6 +37,13 @@ return (
                 <NavLink tag={RRNavLink} to ="/platforms">
                     Platforms
                 </NavLink>
+                {loggedInUser.roles.includes("Admin") && (
+                    <NavItem onClick={() => setOpen(false)}>
+                        <NavLink tag={RRNavLink} to="/userprofile">
+                            Users
+                        </NavLink>
+                    </NavItem>
+                )}
             </Nav>
             </Collapse>
             <Button

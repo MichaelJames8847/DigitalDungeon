@@ -449,12 +449,12 @@ namespace DigitalDungeon.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "c3aaeb97-d2ba-4a53-a521-4eea61e59b35", "e65bb579-48c7-43da-b63c-534f07829b31", "Admin", "admin" });
+                values: new object[] { "c3aaeb97-d2ba-4a53-a521-4eea61e59b35", "7a6e837e-6a61-4cfb-88ef-55cbd55c3333", "Admin", "admin" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f", 0, "6c7f4993-1a09-4145-9993-bf1ce5ddea73", "admina@strator.comx", false, false, null, null, null, "AQAAAAEAACcQAAAAECyzeqUzHuNZMf0XKFBCrauslMf/Cd9i+YBrtiWT2WnDgwNWEpGtO2ic1kqNKe95Lw==", null, false, "ca7b9f24-896a-447d-b5b3-2587460ea67f", false, "Administrator" });
+                values: new object[] { "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f", 0, "cfbfbbae-b4f9-4dc2-8565-898b639e8dd6", "admina@strator.comx", false, false, null, null, null, "AQAAAAEAACcQAAAAEJ/3Y21kwT6tsldfsY+o5khgPYDlXVjcSELwYWhksdF7bEHGVVTE8UQrgDJb94S16g==", null, false, "17fdcf77-d7d7-4c22-9a8e-d3490b6e2454", false, "Administrator" });
 
             migrationBuilder.InsertData(
                 table: "Categories",
@@ -515,7 +515,7 @@ namespace DigitalDungeon.Migrations
                 values: new object[,]
                 {
                     { 1, "Sony's fourth home video game console, offering a diverse library of games and multimedia features.", null, 22, "https://s.yimg.com/uu/api/res/1.2/6JOzs1MvVruaXkzUevGl1w--~B/Zmk9ZmlsbDtoPTU2Mjt3PTg3NTthcHBpZD15dGFjaHlvbg--/https://o.aolcdn.com/hss/storage/midas/9750d914c6bd7f7c99ca0a962fd0336a/204374529/anniversary-29-ed.jpg.cf.webp", "PlayStation 4", new DateTime(2013, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 2, "Personal computer platform, providing a wide range of games across genres and capabilities.", null, 27, "https://thumbor.autonomous.ai/2UM4WvzjJYYsTGIT-WE_pclcnVE=/1600x900/smart/https://cdn.autonomous.ai/static/upload/images/new_post/inspiration-and-tips-for-your-ultimate-desk-gaming-pc-setup-645.jpg", "PC", null },
+                    { 2, "Personal computer platform, providing a wide range of games across genres and capabilities.", null, 27, "https://thumbor.autonomous.ai/2UM4WvzjJYYsTGIT-WE_pclcnVE=/1600x900/smart/https://cdn.autonomous.ai/static/upload/images/new_post/inspiration-and-tips-for-your-ultimate-desk-gaming-pc-setup-645.jpg", "PC", new DateTime(1951, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 3, "Hybrid console offering both traditional home console and portable modes, featuring a diverse game library.", null, 5, "https://www.cnet.com/a/img/resize/11e6be46dff67e0081ea28218bd35c25dfb5664d/hub/2021/10/05/83c35cd5-4664-410d-b15a-5c5d706ba3e7/switch-oled-tabletop.jpg?auto=webp&width=1200", "Nintendo Switch", new DateTime(2017, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 4, "Microsoft's eighth-generation home video game console, providing a variety of gaming experiences.", null, 19, "https://cdn.mos.cms.futurecdn.net/9031a5c33a25d2609d046612e4941fb5-970-80.jpg.webp", "Xbox One", new DateTime(2013, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 5, "Sony's fifth home video game console, introducing advanced graphics and processing capabilities.", null, 9, "https://cdn.mos.cms.futurecdn.net/HkdMToxijoHfz4JwUgfh3G-970-80.jpg.webp", "PlayStation 5", new DateTime(2020, 11, 12, 0, 0, 0, 0, DateTimeKind.Unspecified) },

@@ -707,7 +707,8 @@ namespace DigitalDungeon.Migrations
                             Description = "Personal computer platform, providing a wide range of games across genres and capabilities.",
                             GamesInCatalog = 27,
                             Image = "https://thumbor.autonomous.ai/2UM4WvzjJYYsTGIT-WE_pclcnVE=/1600x900/smart/https://cdn.autonomous.ai/static/upload/images/new_post/inspiration-and-tips-for-your-ultimate-desk-gaming-pc-setup-645.jpg",
-                            Name = "PC"
+                            Name = "PC",
+                            ReleaseYear = new DateTime(1951, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
@@ -1697,7 +1698,7 @@ namespace DigitalDungeon.Migrations
                         new
                         {
                             Id = "c3aaeb97-d2ba-4a53-a521-4eea61e59b35",
-                            ConcurrencyStamp = "e65bb579-48c7-43da-b63c-534f07829b31",
+                            ConcurrencyStamp = "7a6e837e-6a61-4cfb-88ef-55cbd55c3333",
                             Name = "Admin",
                             NormalizedName = "admin"
                         });
@@ -1796,13 +1797,13 @@ namespace DigitalDungeon.Migrations
                         {
                             Id = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6c7f4993-1a09-4145-9993-bf1ce5ddea73",
+                            ConcurrencyStamp = "cfbfbbae-b4f9-4dc2-8565-898b639e8dd6",
                             Email = "admina@strator.comx",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAECyzeqUzHuNZMf0XKFBCrauslMf/Cd9i+YBrtiWT2WnDgwNWEpGtO2ic1kqNKe95Lw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJ/3Y21kwT6tsldfsY+o5khgPYDlXVjcSELwYWhksdF7bEHGVVTE8UQrgDJb94S16g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ca7b9f24-896a-447d-b5b3-2587460ea67f",
+                            SecurityStamp = "17fdcf77-d7d7-4c22-9a8e-d3490b6e2454",
                             TwoFactorEnabled = false,
                             UserName = "Administrator"
                         });
@@ -1918,13 +1919,13 @@ namespace DigitalDungeon.Migrations
             modelBuilder.Entity("DigitalDungeon.Models.PlatformGame", b =>
                 {
                     b.HasOne("DigitalDungeon.Models.Game", "Game")
-                        .WithMany()
+                        .WithMany("PlatformGames")
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("DigitalDungeon.Models.Platform", "Platform")
-                        .WithMany()
+                        .WithMany("PlatformGames")
                         .HasForeignKey("PlatformId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -2117,6 +2118,8 @@ namespace DigitalDungeon.Migrations
 
             modelBuilder.Entity("DigitalDungeon.Models.Game", b =>
                 {
+                    b.Navigation("PlatformGames");
+
                     b.Navigation("UserFavoriteGames");
 
                     b.Navigation("UserProfiles");
@@ -2133,6 +2136,8 @@ namespace DigitalDungeon.Migrations
 
             modelBuilder.Entity("DigitalDungeon.Models.Platform", b =>
                 {
+                    b.Navigation("PlatformGames");
+
                     b.Navigation("UserFavoriteGames");
                 });
 

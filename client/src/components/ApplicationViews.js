@@ -7,6 +7,7 @@ import GameCatalog from "./games/GameCatalog";
 import PlatformList from "./platforns/PlatformList";
 import GameDetails from "./games/GameDetails";
 import PlatformDetails from "./platforns/PlatformDetails";
+import UserProfileList from "./users/UserProfileList";
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
@@ -20,6 +21,15 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
             </AuthorizedRoute>
           }
         />
+        <Route path="userprofile">
+          <Route index
+          element={
+            <AuthorizedRoute roles={["Admin"]} loggedInUser={loggedInUser}>
+              <UserProfileList />
+            </AuthorizedRoute>
+          }
+          />
+        </Route>
         <Route path="games">
           <Route index
           element={
@@ -61,7 +71,7 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           element={<Register setLoggedInUser={setLoggedInUser} />}
         />
         <Route 
-          path="initialpreferences"
+          path="initialPreferences"
           element={
           <UserRegisterPreferences setLoggedInUser={setLoggedInUser}/>}
           />

@@ -525,7 +525,7 @@ modelBuilder.Entity<Platform>().HasData(new Platform[]
         GamesInCatalog = 27,
         Image = "https://thumbor.autonomous.ai/2UM4WvzjJYYsTGIT-WE_pclcnVE=/1600x900/smart/https://cdn.autonomous.ai/static/upload/images/new_post/inspiration-and-tips-for-your-ultimate-desk-gaming-pc-setup-645.jpg",
         Description = "Personal computer platform, providing a wide range of games across genres and capabilities.",
-        ReleaseYear = null,
+        ReleaseYear = DateTime.Parse("1951-4-12"),
         EndYear = null
     },
 

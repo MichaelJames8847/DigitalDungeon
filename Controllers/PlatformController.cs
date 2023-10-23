@@ -1,4 +1,5 @@
 using DigitalDungeon.Data;
+using DigitalDungeon.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -21,8 +22,28 @@ public class PlatformController : ControllerBase
     public IActionResult Get()
     {
         return Ok(_dbContext.Platforms
-            .Include(p => p.PlatformGames)
-            .ThenInclude(pg => pg.Game)
              .ToList());
+    }
+
+    [HttpGet("{id}")]
+    //[Authorize]
+    public IActionResult GetPlatformById(int id)
+    {
+        Platform platform = _dbContext
+        .Platforms
+        .Include(p => p.PlatformGames)
+        .ThenInclude(pg => pg.Game)
+        .ThenInclude(g => g.Genre)
+        .Include(p => p.PlatformGames)
+        .ThenInclude(pg => pg.Game)
+        .ThenInclude(g => g.Category)
+        .SingleOrDefault(p => p.Id == id);
+
+        if (platform == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(platform);
     }
 }
