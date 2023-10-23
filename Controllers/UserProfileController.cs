@@ -18,14 +18,14 @@ public class UserProfileController : ControllerBase
     }
 
     [HttpGet]
-    [Authorize]
+    //[Authorize]
     public IActionResult Get()
     {
         return Ok(_dbContext.UserProfiles.ToList());
     }
 
     [HttpGet("withroles")]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public IActionResult GetWithRoles()
     {
         return Ok(_dbContext.UserProfiles
@@ -47,7 +47,7 @@ public class UserProfileController : ControllerBase
     }
 
     [HttpPost("preferences")]
-    [Authorize]
+    //[Authorize]
     public IActionResult SetPreferences(Preferences preferences)
     {
         var genres = preferences.Genres;
@@ -56,10 +56,15 @@ public class UserProfileController : ControllerBase
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
         var profile = _dbContext.UserProfiles.SingleOrDefault(up => up.IdentityUserId == userId);
 
+        if (profile == null)
+        {
+            return NotFound();
+        }
+
         foreach (var genre in genres)
         {
             _dbContext.UserGenres.Add(new UserGenre { GenreId = genre.Id, UserProfileId = profile.Id });
-            
+
         }
 
         foreach (var category in categories)
@@ -67,12 +72,18 @@ public class UserProfileController : ControllerBase
             _dbContext.UserCategories.Add(new UserCategory { CategoryId = category.Id, UserProfileId = profile.Id });
         }
 
+
+        var updatedProfile = _dbContext.UserProfiles
+            .Include(up => up.UserGenres)
+            .Include(up => up.UserCategories)
+            .SingleOrDefault(up => up.IdentityUserId == userId);
+
         _dbContext.SaveChanges();
-        return NoContent();
+        return Ok(preferences);
     }
 
     [HttpGet("{id}")]
-    [Authorize]
+    //[Authorize]
     public IActionResult GetById(int id)
     {
         UserProfile userProfile = _dbContext
@@ -95,7 +106,7 @@ public class UserProfileController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public IActionResult DeleteUser(int id)
     {
         UserProfile userProfile = _dbContext.UserProfiles.SingleOrDefault(up => up.Id == id);
@@ -112,4 +123,50 @@ public class UserProfileController : ControllerBase
         _dbContext.SaveChanges();
         return NoContent();
     }
+
+    [HttpGet("games")]
+    //[Authorize]
+    public IActionResult GetSuggestedGames()
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var userProfile = _dbContext.UserProfiles
+            .Include(up => up.UserGenres)
+            .ThenInclude(ug => ug.Genre)
+            .Include(up => up.UserCategories)
+            .ThenInclude(uc => uc.Category)
+            .SingleOrDefault(up => up.IdentityUserId == userId);
+
+        if (userProfile == null)
+        {
+            return NotFound();
+        }
+
+        var userGenreIds = userProfile.UserGenres.Select(ug => ug.GenreId).ToList();
+        var userCategoryIds = userProfile.UserCategories.Select(uc => uc.CategoryId).ToList();
+
+        var suggestedGames = _dbContext.Games
+        .Include(game => game.Genre)
+        .Include(game => game.Category)
+        .Where(game => userGenreIds.Contains(game.GenreId) && userCategoryIds.Contains(game.CategoryId))
+        .Select(game => new
+        {
+            game.Id,
+            game.Title,
+            game.CoverImage,
+            game.Description,
+            game.ReleaseDate,
+            Genre = game.Genre.GenreName,
+            Category = game.Category.CategoryName,
+            game.Developer
+        })
+       .ToList();
+
+       if (!suggestedGames.Any())
+       {
+        return Ok("No matching games found");
+       }
+
+        return Ok(suggestedGames);
+    }
+
 }

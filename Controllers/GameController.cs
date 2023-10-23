@@ -1,5 +1,7 @@
+using System.Security.Claims;
 using DigitalDungeon.Data;
 using DigitalDungeon.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,7 +19,7 @@ public class GameController : ControllerBase
     }
 
     [HttpGet]
-    //[Authorize]
+    [Authorize]
 
     public IActionResult GetGames()
     {
@@ -25,7 +27,7 @@ public class GameController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    //[Authorize]
+    [Authorize]
 
     public IActionResult GetGameById(int id)
     {
@@ -44,4 +46,5 @@ public class GameController : ControllerBase
 
         return Ok(game);
     }
+
 }

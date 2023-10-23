@@ -9,6 +9,7 @@ import GameDetails from "./games/GameDetails";
 import PlatformDetails from "./platforns/PlatformDetails";
 import UserProfileList from "./users/UserProfileList";
 import Home from "./Home";
+import UserGamesList from "./users/UserGamesList";
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
@@ -27,6 +28,13 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           element={
             <AuthorizedRoute roles={["Admin"]} loggedInUser={loggedInUser}>
               <UserProfileList />
+            </AuthorizedRoute>
+          }
+          />
+          <Route path="suggestions"
+          element={
+            <AuthorizedRoute loggedInUser={loggedInUser}>
+              <UserGamesList />
             </AuthorizedRoute>
           }
           />

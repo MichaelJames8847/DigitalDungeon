@@ -34,8 +34,12 @@ return (
                     </NavLink>
                 </NavItem>
                 <NavItem onClick={() => setOpen(false)} />
-                <NavLink tag={RRNavLink} to ="/platforms">
+                <NavLink tag={RRNavLink} to="/platforms">
                     Platforms
+                </NavLink>
+                <NavItem onClick={() => setOpen(false)} />
+                <NavLink tag={RRNavLink} to="/userprofile/suggestions">
+                    My Games
                 </NavLink>
                 {loggedInUser.roles.includes("Admin") && (
                     <NavItem onClick={() => setOpen(false)}>
