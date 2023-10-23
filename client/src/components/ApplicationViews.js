@@ -10,6 +10,7 @@ import PlatformDetails from "./platforns/PlatformDetails";
 import UserProfileList from "./users/UserProfileList";
 import Home from "./Home";
 import UserGamesList from "./users/UserGamesList";
+import UserProfileDetails from "./users/UserProfileDetails";
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
@@ -35,6 +36,13 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           element={
             <AuthorizedRoute loggedInUser={loggedInUser}>
               <UserGamesList />
+            </AuthorizedRoute>
+          }
+          />
+          <Route path=":id"
+          element={
+            <AuthorizedRoute roles={["Admin"]} loggedInUser={loggedInUser}>
+              <UserProfileDetails />
             </AuthorizedRoute>
           }
           />

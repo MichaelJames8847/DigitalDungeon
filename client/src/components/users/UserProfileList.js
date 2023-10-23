@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { deleteUser, getUserProfilesWithRoles } from "../../managers/userProfileManager";
 import { Button, Table } from "reactstrap";
+import { Link } from "react-router-dom";
 
 export default function UserProfileList() {
     const [userProfiles, setUserProfiles] = useState([])
@@ -33,6 +34,9 @@ export default function UserProfileList() {
                             <td>{up.address}</td>
                             <td>{up.userName}</td>
                             <td>{up.email}</td>
+                            <td>
+                                <Link to={`${up.id}`}>Details</Link>
+                            </td>
                             <td>
                                 <Button
                                     onClick={() => removeUser(up.id)}
