@@ -221,4 +221,39 @@ public class UserProfileController : ControllerBase
         return Ok(game);
     }
 
+
+    [HttpPut("preferences")]
+    //[Authorize]
+    public IActionResult UpdatePreferences(Preferences preferences)
+    {
+        var genres = preferences.Genres;
+        var categories = preferences.Categories;
+
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var profile = _dbContext.UserProfiles.SingleOrDefault(up => up.IdentityUserId == userId);
+
+        if (profile == null)
+        {
+            return NotFound();
+        }
+
+        foreach (var genre in genres)
+        {
+            _dbContext.UserGenres.Add(new UserGenre { GenreId = genre.Id, UserProfileId = profile.Id});
+        }
+
+        foreach (var category in categories)
+        {
+            _dbContext.UserCategories.Add(new UserCategory { CategoryId = category.Id, UserProfileId = profile.Id});
+        }
+
+        var updatedProfile = _dbContext.UserProfiles
+            .Include(up => up.UserGenres)
+            .Include(up => up.UserCategories)
+            .SingleOrDefault(up => up.IdentityUserId == userId);
+
+        _dbContext.SaveChanges();
+        return Ok(preferences);
+    }
+
 }

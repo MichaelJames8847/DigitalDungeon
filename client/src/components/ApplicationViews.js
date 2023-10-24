@@ -11,6 +11,7 @@ import UserProfileList from "./users/UserProfileList";
 import Home from "./Home";
 import UserGamesList from "./users/UserGamesList";
 import UserProfileDetails from "./users/UserProfileDetails";
+import UserEditPreferences from "./users/UserEditPreferences";
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
@@ -43,6 +44,13 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
           element={
             <AuthorizedRoute roles={["Admin"]} loggedInUser={loggedInUser}>
               <UserProfileDetails />
+            </AuthorizedRoute>
+          }
+          />
+          <Route path="preferences"
+          element={
+            <AuthorizedRoute loggedInUser={loggedInUser}>
+              <UserEditPreferences />
             </AuthorizedRoute>
           }
           />

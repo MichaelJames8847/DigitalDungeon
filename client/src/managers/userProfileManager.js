@@ -57,3 +57,12 @@ export const removeGameFromSuggestions = (gameId) => {
     }).then((res) => res.json());
 }
 
+export const updateUserPreferences = (genres, categories) => {
+    return fetch(apiUrl + "/preferences", {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ genres, categories }),
+    }).then((res) => res.json())
+}
