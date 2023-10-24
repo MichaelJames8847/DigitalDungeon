@@ -48,3 +48,12 @@ export const demoteUser = (userId) => {
     });
 };
 
+export const removeGameFromSuggestions = (gameId) => {
+    return fetch(`${apiUrl}/games/${gameId}/suggestions`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then((res) => res.json());
+}
+

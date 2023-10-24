@@ -148,7 +148,8 @@ public class UserProfileController : ControllerBase
         var suggestedGames = _dbContext.Games
         .Include(game => game.Genre)
         .Include(game => game.Category)
-        .Where(game => userGenreIds.Contains(game.GenreId) && userCategoryIds.Contains(game.CategoryId))
+        .Where(game => userGenreIds.Contains(game.GenreId) 
+        && userCategoryIds.Contains(game.CategoryId))
         .Select(game => new
         {
             game.Id,
@@ -200,6 +201,24 @@ public class UserProfileController : ControllerBase
         _dbContext.UserRoles.Remove(userRole);
         _dbContext.SaveChanges();
         return NoContent();
+    }
+
+    [HttpDelete("games/{gameId}/suggestions")]
+    //[Authorize]
+    public IActionResult RemoveFromSuggestions(RemoveSuggestedGame removeSuggestedGame)
+    {
+        int gameId = removeSuggestedGame.GameId;
+
+        var game = _dbContext.Games.Find(gameId);
+        if (game == null)
+        {
+            return NotFound();
+        }
+
+        _dbContext.Games.Update(game);
+        _dbContext.SaveChanges();
+
+        return Ok(game);
     }
 
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getGamesBasedOnPreferences } from "../../managers/userProfileManager";
+import { getGamesBasedOnPreferences, removeGameFromSuggestions } from "../../managers/userProfileManager";
 import { Button, Card, CardBody, CardDeck, CardImg, CardText, CardTitle } from "reactstrap";
 
 export default function UserGamesList() {
@@ -18,6 +18,13 @@ export default function UserGamesList() {
     });
   }, []);
 
+  const removeSuggestedGame = (gameId) => {
+    removeGameFromSuggestions(gameId).then(() => {
+        const newSuggestedGames = suggestedGames.filter(game => game.id !== gameId);
+        setSuggestedGames(newSuggestedGames)
+    });
+  }
+
     return (
         <>
         {error ? (
@@ -31,6 +38,10 @@ export default function UserGamesList() {
                         <CardTitle>{game.title}</CardTitle>
                         <CardText>{game.description}</CardText>
                         <Button color="primary">Buy Now</Button>
+                        <Button
+                            onClick={() => removeSuggestedGame(game.id)}>
+                                Remove From Suggestions
+                            </Button>
                     </CardBody>
                 </Card>
             ))}
