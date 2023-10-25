@@ -57,22 +57,23 @@ export default function UserProfileList() {
                                 </Button>
                             </td>
                             <td>
-                                <Button
-                                color="danger"
-                                onClick={() => {
-                                    demote(up.identityUserId);
-                                }}>
-                                    Demote
-                                </Button>
-                            </td>
-                            <td>
-                                <Button
-                                color="success"
-                                onClick={() => {
-                                    promote(up.identityUserId);
-                                }}>
-                                    Promote
-                                </Button>
+                                {up.roles && up.roles.includes("Admin") ? (
+                                    <Button
+                                        color="danger"
+                                        onClick={() => {
+                                            demote(up.identityUserId);
+                                        }}>
+                                        Demote
+                                    </Button>
+                                ) : (
+                                    <Button
+                                        color="success"
+                                        onClick={() => {
+                                            promote(up.identityUserId);
+                                        }}>
+                                        Promote
+                                    </Button>
+                                )}
                             </td>
                         </tr>
                     ))}
