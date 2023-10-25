@@ -55,7 +55,7 @@ export const removeGameFromSuggestions = (gameId) => {
             "Content-Type": "application/json",
         },
     }).then((res) => res.json());
-}
+};
 
 export const updateUserPreferences = (genres, categories) => {
     return fetch(apiUrl + "/preferences", {
@@ -65,4 +65,8 @@ export const updateUserPreferences = (genres, categories) => {
         },
         body: JSON.stringify({ genres, categories }),
     }).then((res) => res.json())
-}
+};
+
+export const getUserPreferences = () => {
+    return fetch(apiUrl + "/preferences").then((res) => res.json())
+};

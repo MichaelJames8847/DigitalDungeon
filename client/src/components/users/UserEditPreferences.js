@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getGenres } from "../../managers/genreManager";
 import { getCategories } from "../../managers/categoryManager";
-import { getGamesBasedOnPreferences, updateUserPreferences } from "../../managers/userProfileManager";
+import { getGamesBasedOnPreferences, getUserPreferences, updateUserPreferences } from "../../managers/userProfileManager";
 import { useNavigate } from "react-router-dom";
 import { Button, FormGroup, Input, Label } from "reactstrap";
 
@@ -13,6 +13,12 @@ export default function UserEditPreferences() {
     const navigate = useNavigate();
 
     useEffect(() => {
+        getUserPreferences().then((data) => {
+            const genreIds = data.genres.map((g) => g.id);
+            const categoryIds = data.categories.map((c) => c.id);
+            setSelectedGenres(genreIds);
+            setSelectedCategories(categoryIds);
+        });
         getGenres().then(setGenres);
         getCategories().then(setCategories);
     }, []);

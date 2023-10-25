@@ -80,7 +80,7 @@ public class UserProfileController : ControllerBase
             .SingleOrDefault(up => up.IdentityUserId == userId);
 
         _dbContext.SaveChanges();
-        return Ok(preferences);
+        return Ok(updatedProfile);
     }
 
     [HttpGet("{id}")]
@@ -253,7 +253,35 @@ public class UserProfileController : ControllerBase
             .SingleOrDefault(up => up.IdentityUserId == userId);
 
         _dbContext.SaveChanges();
-        return Ok(preferences);
+        return Ok(updatedProfile);
     }
 
+    [HttpGet("preferences")]
+    //[Authorize]
+    public IActionResult GetPreferences()
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        var profile = _dbContext.UserProfiles
+            .Include(up => up.UserGenres)
+            .ThenInclude(ug => ug.Genre)
+            .Include(up => up.UserCategories)
+            .ThenInclude(uc => uc.Category)
+            .SingleOrDefault(up => up.IdentityUserId == userId);
+
+        if (profile == null)
+        {
+            return NotFound();
+        }
+
+        var userGenres = profile.UserGenres.Select(ug => ug.Genre).ToList();
+        var userCategories = profile.UserCategories.Select(uc => uc.Category).ToList();
+
+        var preferences = new Preferences
+        {
+            Genres = userGenres,
+            Categories = userCategories
+        };
+
+        return Ok(preferences);
+    }
 }
