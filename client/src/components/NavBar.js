@@ -21,7 +21,7 @@ return (
     <div>
     <Navbar color="light" light fixed="true" expand="lg">
         <NavbarBrand className="mr-auto" tag={RRNavLink} to="/">
-        🧹🧼House Rules
+        {`\u{1F3AE}`} DigitalDungeon {`\u{1F3AE}`}
         </NavbarBrand>
         {loggedInUser ? (
         <>
@@ -31,6 +31,11 @@ return (
                 <NavItem onClick={() => setOpen(false)}>
                     <NavLink tag={RRNavLink} to="/games">
                         Game Catalog
+                    </NavLink>
+                </NavItem>
+                <NavItem onClick={() => setOpen(false)}>
+                    <NavLink tag={RRNavLink} to="/games/search">
+                        Game Search
                     </NavLink>
                 </NavItem>
                 <NavItem onClick={() => setOpen(false)} />
@@ -44,6 +49,10 @@ return (
                 <NavItem onClick={() => setOpen(false)} />
                 <NavLink tag={RRNavLink} to="/userprofile/preferences">
                     Edit Preferences
+                </NavLink>
+                <NavItem onClick={() => setOpen(false)} />
+                <NavLink tag={RRNavLink} to="/games/submit-game-request">
+                    Submit Game Request
                 </NavLink>
                 {loggedInUser.roles.includes("Admin") && (
                     <NavItem onClick={() => setOpen(false)}>

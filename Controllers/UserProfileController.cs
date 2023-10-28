@@ -19,14 +19,14 @@ public class UserProfileController : ControllerBase
     }
 
     [HttpGet]
-    //[Authorize]
+    [Authorize]
     public IActionResult Get()
     {
         return Ok(_dbContext.UserProfiles.ToList());
     }
 
     [HttpGet("withroles")]
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public IActionResult GetWithRoles()
     {
         return Ok(_dbContext.UserProfiles
@@ -48,7 +48,7 @@ public class UserProfileController : ControllerBase
     }
 
     [HttpPost("preferences")]
-    //[Authorize]
+    [Authorize]
     public IActionResult SetPreferences(Preferences preferences)
     {
         var genres = preferences.Genres;
@@ -84,7 +84,7 @@ public class UserProfileController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    //[Authorize]
+    [Authorize]
     public IActionResult GetById(int id)
     {
         UserProfile userProfile = _dbContext
@@ -107,7 +107,7 @@ public class UserProfileController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public IActionResult DeleteUser(int id)
     {
         UserProfile userProfile = _dbContext.UserProfiles.SingleOrDefault(up => up.Id == id);
@@ -126,7 +126,7 @@ public class UserProfileController : ControllerBase
     }
 
     [HttpGet("games")]
-    //[Authorize]
+    [Authorize]
     public IActionResult GetSuggestedGames()
     {
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -148,7 +148,7 @@ public class UserProfileController : ControllerBase
         var suggestedGames = _dbContext.Games
         .Include(game => game.Genre)
         .Include(game => game.Category)
-        .Where(game => userGenreIds.Contains(game.GenreId) 
+        .Where(game => userGenreIds.Contains(game.GenreId)
         && userCategoryIds.Contains(game.CategoryId))
         .Select(game => new
         {
@@ -163,10 +163,10 @@ public class UserProfileController : ControllerBase
         })
        .ToList();
 
-       if (!suggestedGames.Any())
-       {
-        return Ok("No matching games found");
-       }
+        if (!suggestedGames.Any())
+        {
+            return Ok("No matching games found");
+        }
 
         return Ok(suggestedGames);
     }
@@ -194,7 +194,7 @@ public class UserProfileController : ControllerBase
             .SingleOrDefault(r => r.Name == "Admin");
         IdentityUserRole<string> userRole = _dbContext
             .UserRoles
-            .SingleOrDefault(ur => 
+            .SingleOrDefault(ur =>
                 ur.RoleId == role.Id &&
                 ur.UserId == id);
 
@@ -204,7 +204,7 @@ public class UserProfileController : ControllerBase
     }
 
     [HttpDelete("games/{gameId}/suggestions")]
-    //[Authorize]
+    [Authorize]
     public IActionResult RemoveFromSuggestions(RemoveSuggestedGame removeSuggestedGame)
     {
         int gameId = removeSuggestedGame.GameId;
@@ -223,7 +223,7 @@ public class UserProfileController : ControllerBase
 
 
     [HttpPut("preferences")]
-    //[Authorize]
+    [Authorize]
     public IActionResult UpdatePreferences(Preferences preferences)
     {
         var genres = preferences.Genres;
@@ -239,12 +239,12 @@ public class UserProfileController : ControllerBase
 
         foreach (var genre in genres)
         {
-            _dbContext.UserGenres.Add(new UserGenre { GenreId = genre.Id, UserProfileId = profile.Id});
+            _dbContext.UserGenres.Add(new UserGenre { GenreId = genre.Id, UserProfileId = profile.Id });
         }
 
         foreach (var category in categories)
         {
-            _dbContext.UserCategories.Add(new UserCategory { CategoryId = category.Id, UserProfileId = profile.Id});
+            _dbContext.UserCategories.Add(new UserCategory { CategoryId = category.Id, UserProfileId = profile.Id });
         }
 
         var updatedProfile = _dbContext.UserProfiles
@@ -257,7 +257,7 @@ public class UserProfileController : ControllerBase
     }
 
     [HttpGet("preferences")]
-    //[Authorize]
+    [Authorize]
     public IActionResult GetPreferences()
     {
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -284,4 +284,5 @@ public class UserProfileController : ControllerBase
 
         return Ok(preferences);
     }
+
 }

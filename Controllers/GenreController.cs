@@ -16,7 +16,7 @@ public class GenreController : ControllerBase
 
     // get all genres from database
     [HttpGet]
-    //[Authorize]
+    [Authorize]
 
     public IActionResult GetGenres()
     {

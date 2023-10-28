@@ -1,0 +1,45 @@
+/* GameDetails.css */
+
+/* Control the card's appearance */
+.card {
+    border: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Control the appearance and size of the image */
+.card-img-top {
+    max-height: 400px; /* you can adjust based on your need */
+    object-fit: cover; 
+    transition: transform 0.3s;
+    border-radius: 0.25rem;
+}
+
+.card-body {
+    overflow-y: auto; /* Add a scrollbar if content gets too long */
+    max-height: calc(100vh - 150px); /* Adjust as necessary */
+}
+
+/* Hover effects for card and image */
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    z-index: 0; /* Ensure the card doesn't overlay the navbar */
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+/* Bring back additional info and adjust its appearance */
+.card-text, .list-group-item {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.list-group-item {
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+

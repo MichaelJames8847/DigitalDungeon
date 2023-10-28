@@ -12,6 +12,10 @@ import Home from "./Home";
 import UserGamesList from "./users/UserGamesList";
 import UserProfileDetails from "./users/UserProfileDetails";
 import UserEditPreferences from "./users/UserEditPreferences";
+import GameSearch from "./games/GameSearch";
+import GameSuggestion from "./games/GameSuggestion";
+import AdminGameForm from "./games/AdminGameForm";
+import UserNotifications from "./users/UserNotifications";
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
@@ -54,6 +58,13 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
             </AuthorizedRoute>
           }
           />
+          <Route path="notifications"
+          element={
+            <AuthorizedRoute loggedInUser={loggedInUser}>
+              <UserNotifications />
+            </AuthorizedRoute>
+          }
+          />
         </Route>
         <Route path="games">
           <Route index
@@ -63,10 +74,24 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
             </AuthorizedRoute>
           }
           />
+              <Route path="submit-game-request"
+              element={
+                <AuthorizedRoute loggedInUser={loggedInUser}>
+                  <GameSuggestion />
+                </AuthorizedRoute>
+              }
+              />
           <Route path=":id"
           element={
             <AuthorizedRoute loggedInUser={loggedInUser}>
               <GameDetails />
+            </AuthorizedRoute>
+          }
+          />
+          <Route path="search"
+          element={
+            <AuthorizedRoute loggedInUser={loggedInUser}>
+              <GameSearch />
             </AuthorizedRoute>
           }
           />

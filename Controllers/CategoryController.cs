@@ -17,7 +17,7 @@ public class CategoryController : ControllerBase
 
     // get all categories from database
     [HttpGet]
-    //[Authorize]
+    [Authorize]
 
     public IActionResult GetCategories()
     {

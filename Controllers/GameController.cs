@@ -10,12 +10,9 @@ using Microsoft.EntityFrameworkCore;
 public class GameController : ControllerBase
 {
     private DigitalDungeonDbContext _dbContext;
-    private GameApiService _gameApiService;
-
-    public GameController(DigitalDungeonDbContext context, GameApiService gameApiService)
+    public GameController(DigitalDungeonDbContext context)
     {
         _dbContext = context;
-        _gameApiService = gameApiService;
     }
 
     [HttpGet]
@@ -45,6 +42,45 @@ public class GameController : ControllerBase
         }
 
         return Ok(game);
+    }
+
+    [HttpGet("search/{query}")]
+    [Authorize]
+    public IActionResult SearchGames(string query)
+    {
+        var games = _dbContext.Games
+            .Where(g => g.Title.Contains(query))
+            .Include(g => g.Genre)
+            .Include(g => g.Category)
+            .Include(g => g.PlatformGames)
+            .ThenInclude(pg => pg.Platform)
+            .ToList();
+
+        return Ok(games);
+    }
+
+    [HttpPost("suggest")]
+    [Authorize]
+    public IActionResult SuggestGame([FromBody] GameSuggestionDTO gameSuggestionDTO)
+    {
+        if (gameSuggestionDTO == null || string.IsNullOrWhiteSpace(gameSuggestionDTO.Name))
+        {
+            return BadRequest("Title is required.");
+        }
+
+        // Set only the title and AdminApproval properties
+        Game game = new Game
+        {
+           Title = gameSuggestionDTO.Name,
+           AdminApproval = false,
+           CategoryId = 1, // Setting to 1 as a placeholder
+           GenreId = 1 // Setting to 1 as a placeholder
+        };
+
+        _dbContext.Games.Add(game);
+        _dbContext.SaveChanges();
+
+        return Ok(new { Message = "Game suggestion received"} );
     }
 
 }

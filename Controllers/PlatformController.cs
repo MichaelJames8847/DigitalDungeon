@@ -17,7 +17,7 @@ public class PlatformController : ControllerBase
     }
 
     [HttpGet]
-    //[Authorize]
+    [Authorize]
 
     public IActionResult Get()
     {
@@ -26,7 +26,7 @@ public class PlatformController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    //[Authorize]
+    [Authorize]
     public IActionResult GetPlatformById(int id)
     {
         Platform platform = _dbContext

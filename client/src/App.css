@@ -5,6 +5,7 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  filter: hue-rotate(120deg); /* Make the logo have a green hue */
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -14,18 +15,26 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #1a1a1a;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #66ff66; /* Xbox green */
+  border-left: 5px solid #66ff66; /* Green blade-like border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .App-link {
-  color: #61dafb;
+  color: #66ff66; /* Xbox green for the link */
+  text-decoration: none; /* Removing the underline for cleaner look */
+  transition: color 0.3s ease;
+}
+
+.App-link:hover {
+  color: #4dff4d; /* A slightly different shade of green on hover */
 }
 
 @keyframes App-logo-spin {

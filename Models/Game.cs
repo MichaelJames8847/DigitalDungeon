@@ -7,7 +7,7 @@ public class Game
 {
     public int Id { get; set; }
     [Required]
-    [MaxLength(50)]
+    [MaxLength(150)]
     [JsonPropertyName("name")]
     public string Title { get; set;}
     [DataType(DataType.Url)]

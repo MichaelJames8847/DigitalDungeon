@@ -54,18 +54,6 @@ AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 // allows our api endpoints to access the database through Entity Framework Core
 builder.Services.AddNpgsql<DigitalDungeonDbContext>(builder.Configuration["DigitalDungeonDbConnectionString"]);
 
-var apiKey = builder.Configuration["GamesApiKey"];
-
-builder.Services.AddHttpClient<GameApiService>(client => 
-{
-    client.BaseAddress = new Uri("https://api.rawg.io/");
-}).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
-{
-    AllowAutoRedirect = false
-});
-builder.Services.AddSingleton(apiKey);
-
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -70,3 +70,7 @@ export const updateUserPreferences = (genres, categories) => {
 export const getUserPreferences = () => {
     return fetch(apiUrl + "/preferences").then((res) => res.json())
 };
+
+export const getNotifications = () => {
+    return fetch(`${apiUrl}/notifications`).then((r) => r.json());
+};

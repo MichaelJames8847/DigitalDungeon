@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getGameById } from "../../managers/gameManager";
-import { Card, CardBody, CardImg, CardTitle } from "reactstrap";
+import { Card, CardBody, CardImg, CardTitle, CardSubtitle, CardText, ListGroup, ListGroupItem } from "reactstrap";
+import "./GameDetails.css"
 
 export default function GameDetails() {
     const [game, setGame] = useState({});
@@ -13,21 +14,27 @@ export default function GameDetails() {
 
     return (
         <>
-        <h2>Game Details</h2>
-        <Card>
+        <h2 className="text-light">Game Details</h2>
+        <Card className="bg-dark text-light mb-3">
             <CardBody>
                 <CardTitle tag="h4">{game.name}</CardTitle>
-                <CardImg src={game.background_image} />
-                <p>Description: {game.description}</p>
-                <p>Genre: {game.genre?.genreName}</p>
-                <p>Category: {game.category?.categoryName}</p>
-                <p>Release Date: {game.released}</p>
-                <p>Developer: {game.developer}</p>
-                <p>Platforms: {game.platformGames?.map((p) => (
-                    <div key={p.id}>
-                        <h3>{p.platform.name}</h3>
-                    </div>
-                ))}</p>
+                <CardImg top width="100%" src={game.background_image} alt={game.name} />
+                <CardText className="mt-3">Description: {game.description}</CardText>
+                <CardSubtitle tag="h6" className="mb-2 text-muted">Details</CardSubtitle>
+                <ListGroup flush className="text-light">
+                    <ListGroupItem className="bg-dark">Genre: {game.genre?.genreName}</ListGroupItem>
+                    <ListGroupItem className="bg-dark">Category: {game.category?.categoryName}</ListGroupItem>
+                    <ListGroupItem className="bg-dark">Release Date: {game.released}</ListGroupItem>
+                    <ListGroupItem className="bg-dark">Developer: {game.developer}</ListGroupItem>
+                </ListGroup>
+                <CardSubtitle tag="h6" className="mt-3 mb-2 text-muted">Platforms</CardSubtitle>
+                <ListGroup flush className="text-light">
+                    {game.platformGames?.map((p) => (
+                        <ListGroupItem className="bg-dark" key={p.id}>
+                            {p.platform.name}
+                        </ListGroupItem>
+                    ))}
+                </ListGroup>
             </CardBody>
         </Card>
         </>

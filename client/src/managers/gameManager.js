@@ -9,5 +9,18 @@ export const getGameById = (id) => {
     return fetch(`${apiUrl}/${id}`).then((r) => r.json());
 };
 
+export const searchGames = (query) => {
+    return fetch(`${apiUrl}/search/${query}`).then((r) => r.json());
+};
+
+export const suggestGame = (title) => {
+    return fetch(apiUrl + "/suggest", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name: title }),
+    }).then((res) => res.json());
+};
 
 

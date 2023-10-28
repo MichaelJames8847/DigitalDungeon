@@ -1,0 +1,59 @@
+body {
+    background-color: #1a1a1a;
+}
+
+.custom-card-img {
+    height: 200px;  /* Adjust this value based on desired height */
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Blade-like Cards */
+.card {
+    background-color: #333;
+    border-left: 5px solid #66ff66; /* Green blade-like border */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Game Titles */
+.card-title a {
+    text-decoration: none;
+    color: #66ff66; /* Green color for the game title */
+}
+
+.card-title a:hover {
+    text-decoration: underline;
+}
+
+/* Pagination Controls */
+button {
+    background-color: #333333;
+    border: none;
+    color: #66ff66; /* Green color for the button text */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #4d4d4d;
+    transform: translateY(-3px); /* Slight up movement on hover */
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Overall styling for consistency */
+.container {
+    font-family: 'Trebuchet MS', sans-serif;
+}
