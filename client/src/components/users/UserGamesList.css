@@ -1,0 +1,72 @@
+/* UserGamesList.css */
+
+.user-games-list {
+    background-color: #003366; /* Dark blue background, typical of PS2 */
+    color: #fff;
+    padding: 20px;
+    font-family: 'Arial', sans-serif; /* Similar to PS2 font */
+}
+
+.user-games-list .card {
+    background: linear-gradient(145deg, #001a33, #005ce6);
+    border: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: visible;
+}
+
+.user-games-list .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
+}
+
+.user-games-list .card img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.user-games-list .card:hover img {
+    transform: scale(1.1);
+}
+
+.user-games-list .card-body {
+    background-color: transparent;
+}
+
+.user-games-list .dropdown-menu {
+    background-color: #002244; /* Darker blue for dropdown */
+    border: 1px solid #005ce6;
+    z-index: 1000;
+}
+
+.user-games-list .dropdown-item {
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.user-games-list .dropdown-item:hover {
+    background-color: #005ce6;
+}
+
+.user-games-list .error-message {
+    background-color: #660000; /* Dark red for errors */
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.user-games-list .btn-secondary {
+    background-color: #666; /* Grey to match PS2 buttons */
+    border: none;
+}
+
+.user-games-list .btn-secondary:hover {
+    background-color: #777;
+}
+
+.user-games-list .card-img-top {
+    width: 100%; /* makes the image responsive */
+    height: 180px; /* adjust this to change the height */
+    object-fit: contain; /* this will cover the area without stretching the image */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* optional: adds a subtle line between the image and card body */
+}
+
+/* Add any additional styles you need for layout, fonts, etc. */

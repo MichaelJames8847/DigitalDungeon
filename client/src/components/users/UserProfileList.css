@@ -1,0 +1,83 @@
+.user-profile-list {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7; /* Switch light grey background */
+  }
+  
+  .user-profile-list table {
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+  }
+  
+  .user-profile-list th,
+  .user-profile-list td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .user-profile-list thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    color: #333; /* Dark text for headings */
+  }
+  
+  .user-profile-list tbody + tbody {
+    border-top: 2px solid #dee2e6;
+  }
+  
+  .user-profile-list .table {
+    color: #333; /* Dark text for content */
+  }
+  
+  /* Style the buttons to match the Switch red and grey theme */
+  .user-profile-list .btn {
+    margin: 0 5px;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .user-profile-list .btn-danger {
+    background-color: #e60012; /* Switch red */
+    border-color: #e60012;
+  }
+  
+  .user-profile-list .btn-success {
+    background-color: #4CAF50; /* A green that fits the Switch theme */
+    border-color: #4CAF50;
+  }
+  
+  .user-profile-list .btn-danger:hover,
+  .user-profile-list .btn-success:hover {
+    opacity: 0.85;
+  }
+  
+  .user-profile-list .btn-danger:focus,
+  .user-profile-list .btn-success:focus,
+  .user-profile-list .btn-danger.focus,
+  .user-profile-list .btn-success.focus {
+    box-shadow: 0 0 0 0.2rem rgba(230, 0, 18, 0.5);
+  }
+  
+  /* Add a Nintendo Switch-style link */
+  .user-profile-list a {
+    color: #e60012; /* Switch red */
+    text-decoration: none;
+  }
+  
+  .user-profile-list a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Add responsiveness to the table */
+  @media (max-width: 768px) {
+    .user-profile-list .table-responsive {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+  

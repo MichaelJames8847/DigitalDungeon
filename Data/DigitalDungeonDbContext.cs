@@ -481,7 +481,7 @@ public class DigitalDungeonDbContext : IdentityDbContext<IdentityUser>
         {
             Id = 29,
             Title = "Terraria",
-            CoverImage = "https://static.wikia.nocookie.net/vsbattles/images/c/c4/Terraria.png/revision/latest/scale-to-width-down/1000?cb=20150703181451",
+            CoverImage = "https://upload.wikimedia.org/wikipedia/en/thumb/1/1a/Terraria_Steam_artwork.jpg/220px-Terraria_Steam_artwork.jpg",
             Description = "Unleash your creativity in this 2D sandbox adventure. Dig, build, and explore in a procedurally generated world filled with monsters, treasures, and secrets.",
             GenreId = 17,
             CategoryId = 12,
@@ -751,7 +751,7 @@ new Game
 {
     Id = 51,
     Title = "Star Wars: Knights of the Old Republic 2: The Sith Lords",
-    CoverImage = "https://static.wikia.nocookie.net/starwars/images/d/d9/Kotoriibox.jpg/revision/latest?cb=20060603062220",
+    CoverImage = "https://www.godisageek.com/wp-content/uploads/apps.45033.14417244363263575.acb13d5f-45b0-4587-8107-3e760e953737-790x444.jpg",
     Description = "The sequel to Knights of the Old Republic, delving deeper into the Star Wars lore with a darker narrative and more refined gameplay mechanics.",
     GenreId = 3, // RPG
     CategoryId = 2, // Sci-Fi
@@ -776,7 +776,7 @@ new Game
 {
     Id = 53,
     Title = "Star Wars: Jedi Survivor",
-    CoverImage = "https://static.wikia.nocookie.net/starwars/images/8/82/Star_Wars_Jedi_Survivor_cover_art.jpg/revision/latest?cb=20221212004209", // Placeholder, as this title doesn't exist to the best of my knowledge
+    CoverImage = "https://mms.businesswire.com/media/20221208006107/en/1660328/4/SWJS_Survivor_Key_Art_Standard%281%29.jpg?download=1",
     Description = "A hypothetical Star Wars game where Jedi must survive against insurmountable odds.",
     GenreId = 1, // Action
     CategoryId = 2, // Sci-Fi
@@ -885,7 +885,7 @@ new Game
 {
     Id = 62,
     Title = "Metal Gear Solid",
-    CoverImage = "https://static.wikia.nocookie.net/metalgear/images/3/3c/SLUS-00594-F-ALL.jpg/revision/latest?cb=20200303161503",
+    CoverImage = "https://images.pushsquare.com/fc8b1298ef3e0/metal-gear-solid-cover.cover_300x.jpg",
     Description = "Sneak your way through a nuclear facility in Alaska with Solid Snake in this tactical espionage action game.",
     GenreId = 1, // Action
     CategoryId = 2, // Sci-Fi
@@ -909,7 +909,7 @@ new Game
 {
     Id = 64,
     Title = "Castlevania: Symphony of the Night",
-    CoverImage = "https://static.wikia.nocookie.net/castlevania/images/b/b0/Castlevania_-_Symphony_of_the_Night_%28gamebox%29.jpg/revision/latest/scale-to-width-down/1200?cb=20150822135929",
+    CoverImage = "https://www.rpgfan.com/wp-content/uploads/2020/07/Castlevania-Symphony-of-the-Night-Cover-Art-001.jpg",
     Description = "Explore Dracula's castle as Alucard, seeking to defeat the dark lord.",
     GenreId = 2, // Adventure
     CategoryId = 1, // Fantasy
@@ -933,7 +933,7 @@ new Game
 {
     Id = 66,
     Title = "Street Fighter II",
-    CoverImage = "https://static.wikia.nocookie.net/capcomdatabase/images/f/fb/SFIICoverScan.png/revision/latest?cb=20080806031247",
+    CoverImage = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2e3851a3-ebc6-487d-95bd-490844510fac/d3089lp-3ae10c8c-6363-43bc-b8ef-4ef4cbb6cb1b.jpg/v1/fill/w_900,h_669,q_75,strp/street_fighter_2_snesbox_cover_by_hellstinger64_d3089lp-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjY5IiwicGF0aCI6IlwvZlwvMmUzODUxYTMtZWJjNi00ODdkLTk1YmQtNDkwODQ0NTEwZmFjXC9kMzA4OWxwLTNhZTEwYzhjLTYzNjMtNDNiYy1iOGVmLTRlZjRjYmI2Y2IxYi5qcGciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.Fm7WLxAGjPuR7j6fp0y8FPW4rKgVbn62eMe1WFtbfP0",
     Description = "Engage in fierce one-on-one battles with fighters from around the globe in this iconic fighting game.",
     GenreId = 11, // Fighting
     CategoryId = 5, // Thriller
@@ -993,7 +993,7 @@ new Game
 {
     Id = 71,
     Title = "Metroid Prime",
-    CoverImage = "https://static.wikia.nocookie.net/metroid/images/b/ba/MetroidPrimebox.jpg/revision/latest?cb=20220716192249",
+    CoverImage = "https://cdn.mobygames.com/promos/527284-metroid-prime-other.jpg",
     Description = "Explore the alien world of Tallon IV in first-person perspective as Samus Aran, battling space pirates and ancient creatures.",
     GenreId = 1, // Action
     CategoryId = 2, // Sci-Fi
@@ -1041,7 +1041,7 @@ new Game
 {
     Id = 75,
     Title = "Super Metroid",
-    CoverImage = "https://static.wikia.nocookie.net/metroid/images/0/08/Super_Metroid_box.jpg/revision/latest?cb=20220628082152",
+    CoverImage = "https://images.nintendolife.com/b056f83e2b311/us.large.jpg",
     Description = "Guide Samus Aran on planet Zebes in her quest to rescue a baby Metroid from space pirates.",
     GenreId = 2, // Adventure
     CategoryId = 2, // Sci-Fi
@@ -1135,7 +1135,7 @@ new Game
 {
     Id = 83,
     Title = "Marvel's Spider-Man",
-    CoverImage = "https://static.wikia.nocookie.net/spidermanps4/images/d/d4/Marvel%27s_Spider-Man_front_cover_%28US%29.png/revision/latest?cb=20201003182432",
+    CoverImage = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1ea08e12-847b-4c43-8433-ff86b833fd7b/dfzv6g2-5a1db4b8-b4aa-46b5-91c4-efbed9c8a53b.jpg/v1/fill/w_890,h_501,q_75,strp/marvel_s_spider_man__2018_video_game__cover__by_blue_leader97_dfzv6g2-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTAxIiwicGF0aCI6IlwvZlwvMWVhMDhlMTItODQ3Yi00YzQzLTg0MzMtZmY4NmI4MzNmZDdiXC9kZnp2NmcyLTVhMWRiNGI4LWI0YWEtNDZiNS05MWM0LWVmYmVkOWM4YTUzYi5qcGciLCJ3aWR0aCI6Ijw9ODkwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.hNBEgPHMdqbOvPWk3EU3FTDq0Jb0j-qNSvQHa1tKxo0",
     Description = "An action-adventure game that lets players swing through New York City as the iconic superhero Spider-Man.",
     GenreId = 1, // Action
     CategoryId = 15, // Superhero
@@ -1243,7 +1243,7 @@ new Game
     Title = "Dragon Ball Z: Buu's Fury",
     Description = "Play through the final chapters of the Dragon Ball Z story, from the Other World Tournament saga to the Kid Buu saga.",
     ReleaseDate = DateTime.Parse("2004-09-14"),
-    CoverImage = "https://static.wikia.nocookie.net/dragonball/images/0/0f/GBA_DragonBallZ_BuusFury.jpg/revision/latest?cb=20080228180723",
+    CoverImage = "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co3klz.jpg",
     CategoryId = 1, // Fantasy
     GenreId = 3   // RPG
 },
@@ -1441,7 +1441,7 @@ new Game
 {
     Id = 110,
     Title = "Streets of Rage 2",
-    CoverImage = "https://static.wikia.nocookie.net/streetsofrage/images/0/0a/SoRCover.jpg/revision/latest?cb=20190819175212",
+    CoverImage = "https://cdn.mobygames.com/336a5252-abcd-11ed-93d8-02420a000198.webp",
     Description = "Punch and kick your way through city streets to confront the evil Mr. X in this classic beat 'em up.",
     GenreId = 1, // Action
     CategoryId = 5, // Thriller
@@ -1624,7 +1624,7 @@ new Game
 {
     Id = 126,
     Title = "Crackdown",
-    CoverImage = "https://static.wikia.nocookie.net/crackdown/images/c/c2/Crackdown-cover.png/revision/latest?cb=20100723015531",
+    CoverImage = "https://vgboxart.com/boxes/360/3279-crackdown.jpg",
     Description = "An open-world action game where players assume the role of a super-powered agent tasked with taking down criminal syndicates in a futuristic city.",
     GenreId = 1, // Action
     CategoryId = 15, // Superhero
@@ -1804,7 +1804,7 @@ new Game
 {
     Id = 141,
     Title = "Disco Elysium",
-    CoverImage = "https://example.com/discoelysium_cover.jpg",
+    CoverImage = "https://150044068.v2.pressablecdn.com/wp-content/uploads/0d4244c2fd3525dca5278a1bfa6e6a50608d690ec473e4597f53b76c8211aed4_product_card_v2_mobile_slider_639-639x330.jpg",
     Description = "A detective role-playing game with a heavy focus on narrative and dialogue choices, set in a unique and gritty urban fantasy world.",
     GenreId = 3, // RPG
     CategoryId = 7, // Drama
@@ -1877,7 +1877,7 @@ new Game
 {
     Id = 147,
     Title = "Star Wars: Knights of the Old Republic",
-    CoverImage = "https://static.wikia.nocookie.net/starwars/images/1/15/KotOR_Cover.png/revision/latest?cb=20131201215938",
+    CoverImage = "https://imageio.forbes.com/specials-images/imageserve/6516be8aa27b6dd6a0e67651/kotor2/960x0.png?format=png&width=1440",
     Description = "A role-playing game set in the Star Wars universe, taking place thousands of years before the original films, allowing players to shape the fate of the galaxy.",
     GenreId = 3, // RPG
     CategoryId = 2, // Sci-Fi
@@ -1891,7 +1891,7 @@ new Game
     Title = "Dragon Ball Z: The Legacy of Goku II",
     Description = "Continue the DBZ saga, spanning from the Frieza saga to the end of the Cell Games.",
     ReleaseDate = DateTime.Parse("2003-06-17"),
-    CoverImage = "https://static.wikia.nocookie.net/dragonball/images/e/ed/Legacy_of_goku_2.jpg/revision/latest?cb=20100102065837",
+    CoverImage = "https://www.giantbomb.com/a/uploads/scale_small/8/87790/1814881-box_dbztlog2.png",
     CategoryId = 1, // Fantasy
     GenreId = 3   // RPG
 },
@@ -1901,7 +1901,7 @@ new Game
     Title = "Fable",
     Description = "In a fantasy world, grow from a young boy into a legendary hero. Every choice impacts your path, reputation, and the evolution of the world around you.",
     ReleaseDate = DateTime.Parse("2004-09-14"),
-    CoverImage = "https://static.wikia.nocookie.net/fable/images/8/8d/Fable_NTSC-U_Box_Art.jpg/revision/latest/scale-to-width-down/1200?cb=20230224035205",
+    CoverImage = "https://preview.redd.it/nrwhtr50v0t51.jpg?width=256&format=pjpg&auto=webp&s=894462d80ac59ad63eb4d78c2afd1643da3ea949",
     CategoryId = 1, // Fantasy
     GenreId = 19  // Open World
 },

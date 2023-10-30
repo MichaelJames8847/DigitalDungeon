@@ -2,6 +2,7 @@ import { useState } from "react";
 import { searchGames } from "../../managers/gameManager";
 import { FormGroup, Form, Label, Input, Button, ListGroup, ListGroupItem } from "reactstrap";
 import { Link } from "react-router-dom";
+import "./GameSearch.css"
 
 export default function GameSearch() {
     const [query, setQuery] = useState('');
@@ -14,7 +15,7 @@ export default function GameSearch() {
     };
 
     return (
-        <div>
+        <div className="game-search">
             <Form onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label>Search Games:</Label>
@@ -32,7 +33,7 @@ export default function GameSearch() {
                 <ListGroup>
                     {games.map(game => (
                         <ListGroupItem key={game.id}>
-                            <Link to={`${game.Id}`}>
+                            <Link to={`/games/${game.id}`}>
                             <h4>{game.name}</h4>
                             </Link>
                             <img src={game.background_image} alt={game.name} width="200" />

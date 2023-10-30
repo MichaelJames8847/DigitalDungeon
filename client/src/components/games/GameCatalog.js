@@ -32,11 +32,12 @@ export default function GameCatalog() {
     }
 
     return (
+        <div className="game-catalog">
         <Container className="mt-4">
             <h2 className="text-center text-success">Game Catalog</h2>
             <Row>
                 {currentGames.map((g) => (
-                    <Col key={`game-${g.id}`} sm={5} md={3} lg={5} className="mb-4">
+                    <Col key={`game-${g.id}`} sm={6} md={4} lg={5} className="mb-4">
                         <Card>
                             <CardImg top className="custom-card-img" src={g.background_image} alt={g.name} />
                             <CardBody>
@@ -56,5 +57,6 @@ export default function GameCatalog() {
                 <Button onClick={handleNextPage} disabled={currentPage === totalPages} className="ms-3">Next</Button>
             </div>
         </Container>
+        </div>
     );
 }

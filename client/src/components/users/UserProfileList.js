@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { deleteUser, demoteUser, getUserProfilesWithRoles, promoteUser } from "../../managers/userProfileManager";
 import { Button, Table } from "reactstrap";
 import { Link } from "react-router-dom";
+import "./UserProfileList.css"
 
 export default function UserProfileList() {
     const [userProfiles, setUserProfiles] = useState([])
@@ -30,6 +31,7 @@ export default function UserProfileList() {
 
     return (
         <>
+        <div className="user-profile-list">
             <Table>
                 <thead>
                     <tr>
@@ -79,6 +81,7 @@ export default function UserProfileList() {
                     ))}
                 </tbody>
             </Table>
+            </div>
         </>
     )
 }

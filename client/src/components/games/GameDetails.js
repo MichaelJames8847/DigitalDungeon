@@ -14,6 +14,7 @@ export default function GameDetails() {
 
     return (
         <>
+        <div className="game-details">
         <h2 className="text-light">Game Details</h2>
         <Card className="bg-dark text-light mb-3">
             <CardBody>
@@ -29,6 +30,7 @@ export default function GameDetails() {
                 </ListGroup>
                 <CardSubtitle tag="h6" className="mt-3 mb-2 text-muted">Platforms</CardSubtitle>
                 <ListGroup flush className="text-light">
+                    Available On:
                     {game.platformGames?.map((p) => (
                         <ListGroupItem className="bg-dark" key={p.id}>
                             {p.platform.name}
@@ -37,6 +39,7 @@ export default function GameDetails() {
                 </ListGroup>
             </CardBody>
         </Card>
+        </div>
         </>
     )
 }

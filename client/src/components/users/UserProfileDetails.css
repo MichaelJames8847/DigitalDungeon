@@ -1,0 +1,51 @@
+.user-profile-details {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7; /* Switch light grey background */
+  }
+  
+  .user-profile-details h2 {
+    color: #333; /* Dark text for headings */
+    padding-bottom: 10px;
+    border-bottom: 3px solid #e60012; /* Switch red accent line */
+    margin-bottom: 20px;
+  }
+  
+  .user-profile-details .card {
+    background-color: white; /* Card with white background */
+    border-radius: 10px; /* Rounded corners for the card */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .user-profile-details .card-body {
+    color: #333; /* Dark text for content */
+  }
+  
+  .user-profile-details .card-title {
+    color: #e60012; /* Switch red for the user's name */
+    margin-bottom: 20px;
+  }
+  
+  .user-profile-details p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #666; /* Dark grey text for details */
+  }
+  
+  /* Add a touch of Nintendo Switch's Joy-Con red for links */
+  .user-profile-details a {
+    color: #e60012; /* Joy-Con red */
+    text-decoration: none;
+  }
+  
+  .user-profile-details a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .user-profile-details .card {
+      margin: 10px; /* Smaller margin on smaller screens */
+    }
+  }
+  

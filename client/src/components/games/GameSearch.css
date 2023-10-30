@@ -1,0 +1,68 @@
+/* GameSearch.css */
+
+.game-search {
+    color: #fff; /* White text color */
+    background-color: #000; /* Black background */
+    font-family: 'Trebuchet MS', Arial, sans-serif; /* Xbox-like font */
+  }
+  
+  .game-search Form {
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: #111; /* Slightly lighter black for the form */
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #333; /* Border to give some depth */
+  }
+  
+  .game-search Label {
+    color: #66ff66; /* Xbox green color for labels */
+  }
+  
+  .game-search Input {
+    background-color: #222; /* Darker input fields */
+    border: 1px solid #333;
+    color: #66ff66; /* Xbox green text for input */
+  }
+  
+  .game-search Button {
+    background-color: #143314; /* Dark green button */
+    border: none;
+    padding: 0.5rem 1rem;
+  }
+  
+  .game-search Button:hover {
+    background-color: #1a4a1a; /* Slightly lighter green on hover */
+  }
+  
+  .game-search .ListGroup {
+    background-color: #000; /* Black background for list */
+    border: none;
+  }
+  
+  .game-search .ListGroupItem {
+    background-color: #111; /* Slightly lighter black for list items */
+    border: none;
+    margin-bottom: 1rem; /* Space between items */
+    padding: 1rem;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .game-search .ListGroupItem:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    background-color: #1a1a1a; /* Highlight item on hover */
+  }
+  
+  .game-search img {
+    border-radius: 0.5rem; /* Rounded corners for images */
+    border: 2px solid #333; /* Border for images */
+  }
+  
+  .game-search h4 {
+    color: #66ff66; /* Xbox green for titles */
+  }
+  
+  .game-search p {
+    color: #aaa; /* Grey text for descriptions */
+  }
+  

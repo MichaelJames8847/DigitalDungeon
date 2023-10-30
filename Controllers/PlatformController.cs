@@ -33,10 +33,6 @@ public class PlatformController : ControllerBase
         .Platforms
         .Include(p => p.PlatformGames)
         .ThenInclude(pg => pg.Game)
-        .ThenInclude(g => g.Genre)
-        .Include(p => p.PlatformGames)
-        .ThenInclude(pg => pg.Game)
-        .ThenInclude(g => g.Category)
         .SingleOrDefault(p => p.Id == id);
 
         if (platform == null)

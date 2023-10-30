@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getUserById } from "../../managers/userProfileManager";
 import { Card, CardBody, CardTitle } from "reactstrap";
 import { useParams } from "react-router-dom";
+import "./UserProfileDetails.css"
 
 export default function UserProfileDetails() {
     const [userProfile, setUserProfile] = useState([]);
@@ -13,6 +14,7 @@ export default function UserProfileDetails() {
 
     return (
         <>
+        <div className="user-profile-details">
         <h2>User Details</h2>
         <Card>
             <CardBody>
@@ -22,6 +24,7 @@ export default function UserProfileDetails() {
                 <p>Username: {userProfile.identityUser?.userName}</p>
             </CardBody>
         </Card>
+        </div>
         </>
     )
 }

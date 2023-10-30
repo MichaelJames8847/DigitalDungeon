@@ -2,58 +2,97 @@ body {
     background-color: #1a1a1a;
 }
 
-.custom-card-img {
+.game-catalog .custom-card-img {
     height: 200px;  /* Adjust this value based on desired height */
-    object-fit: cover;
+    object-fit: contain;
     width: 100%;
+    display: block;
+    margin: auto;
+    background-color: #1a1a1a;
 }
 
 /* Blade-like Cards */
-.card {
+.game-catalog .card {
     background-color: #333;
     border-left: 5px solid #66ff66; /* Green blade-like border */
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    margin-bottom: 1rem;
 }
 
-.card:hover {
+.game-catalog .card-title, .card-text {
+    min-height: 3em; /* Adjust this value to fit the largest expected title */
+    overflow: hidden; /* Hide text that overflows */
+    text-overflow: ellipsis; /* Add an ellipsis to text that overflows */
+}
+
+.game-catalog .card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Number of lines you want to display */
+    -webkit-box-orient: vertical;
+}
+
+.game-catalog .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* Adjust the row to manage the wrap of cards */
+.game-catalog .row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+/* Adjust the column to add padding around cards */
+.game-catalog .col {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.game-catalog .card:hover {
     transform: scale(1.05); /* Slight zoom effect on hover */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* Game Titles */
-.card-title a {
+.game-catalog .card-title a {
     text-decoration: none;
     color: #66ff66; /* Green color for the game title */
 }
 
-.card-title a:hover {
+.game-catalog .card-title a:hover {
     text-decoration: underline;
 }
 
 /* Pagination Controls */
-button {
+.game-catalog button {
     background-color: #333333;
     border: none;
     color: #66ff66; /* Green color for the button text */
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-button:hover {
+.game-catalog button:hover {
     background-color: #4d4d4d;
     transform: translateY(-3px); /* Slight up movement on hover */
 }
 
-button:active {
+.game-catalog button:active {
     transform: translateY(0);
 }
 
-button:disabled {
+.game-catalog button:disabled {
     cursor: not-allowed;
     opacity: 0.7;
 }
 
 /* Overall styling for consistency */
-.container {
+.game-catalog .container {
     font-family: 'Trebuchet MS', sans-serif;
 }

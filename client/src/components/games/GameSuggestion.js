@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { suggestGame } from "../../managers/gameManager";
 import { Button, Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader } from "reactstrap";
+import "./GameSuggestion.css"
 
 export default function GameSuggestion() {
     const [title, setTitle] = useState("");
@@ -11,7 +12,7 @@ export default function GameSuggestion() {
         try {
             const data = await suggestGame(title);
             
-            if (data && data.Id) { // Assuming the server responds with the newly created game object
+            if (data && data.Id) { 
                 setModalMessage("Your suggestion is pending approval. You will be notified once the admins review it.");
                 setTitle("");
             } else {
@@ -25,7 +26,7 @@ export default function GameSuggestion() {
     };
 
     return (
-        <div>
+        <div className="game-suggestion">
             <Form onSubmit={e => { e.preventDefault(); handleSubmit(); }}>
                 <FormGroup>
                     <Label for="gameTitle">Game Title</Label>

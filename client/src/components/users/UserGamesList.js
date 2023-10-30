@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card, CardBody, CardDeck, CardImg, CardText, CardTitle, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { getGamesBasedOnPreferences, getPurchaseLinks, removeGameFromSuggestions } from '../../managers/userProfileManager';
+import "./UserGamesList.css"
 
 export default function UserGamesList() {
   const [suggestedGames, setSuggestedGames] = useState([]);
@@ -16,7 +17,6 @@ export default function UserGamesList() {
         setError("An error occurred while fetching games based on preferences");
       });
 
-    // Fetch purchase links once when the component mounts
     getPurchaseLinks()
       .then(setPurchaseLinks)
       .catch((error) => {
@@ -44,6 +44,7 @@ export default function UserGamesList() {
 
   return (
     <>
+    <div className='user-games-list'>
       {error && <div className="error-message">{error}</div>}
       <CardDeck>
         {suggestedGames.map((game) => (
@@ -73,6 +74,7 @@ export default function UserGamesList() {
           </Card>
         ))}
       </CardDeck>
+      </div>
     </>
   );
 }

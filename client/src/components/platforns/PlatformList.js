@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllPlatforms } from "../../managers/platformManager";
 import { Link } from "react-router-dom";
+import "./PlatformList.css"
 
 export default function PlatformList() {
     const [platforms, setPlatforms] = useState([]);
@@ -11,6 +12,7 @@ export default function PlatformList() {
 
     return (
         <>
+        <div className="platform-list">
         <h2>Platforms</h2>
         <article className="platforms">
             {platforms.map((p) => (
@@ -22,6 +24,7 @@ export default function PlatformList() {
                 </div>
             ))}
         </article>
+        </div>
         </>
     )
 }

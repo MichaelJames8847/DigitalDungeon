@@ -1,0 +1,42 @@
+/* PlatformDetails.css */
+
+.platform-details {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text color */
+    font-family: 'Trebuchet MS', Arial, sans-serif; /* Xbox-like font */
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .platform-details h2 {
+    color: #66ff66; /* Xbox green color for the heading */
+    margin-bottom: 2rem;
+  }
+  
+  .platform-details .card {
+    background-color: #333; /* Dark gray card background */
+    border: none; /* Remove any default border */
+  }
+  
+  .platform-details .card-body {
+    border-left: 5px solid #66ff66; /* Green blade-like border */
+    padding: 2rem; /* Spacing inside the card */
+  }
+  
+  .platform-details .card-title {
+    color: #66ff66; /* Xbox green color for the title */
+  }
+  
+  .platform-details .card-img {
+    max-width: 100%; /* Full width card image */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 2rem; /* Spacing below the image */
+  }
+  
+  .platform-details p {
+    background-color: #222; /* Darker background for paragraphs */
+    padding: 0.5rem 1rem; /* Padding inside paragraphs */
+    border-radius: 0.25rem; /* Slightly rounded corners for paragraphs */
+    margin-bottom: 1rem; /* Spacing between paragraphs */
+  }
+  

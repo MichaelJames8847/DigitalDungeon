@@ -149,7 +149,8 @@ public class UserProfileController : ControllerBase
         .Include(game => game.Genre)
         .Include(game => game.Category)
         .Where(game => userGenreIds.Contains(game.GenreId)
-        && userCategoryIds.Contains(game.CategoryId))
+        && userCategoryIds.Contains(game.CategoryId)
+        && game.AdminApproval == true)
         .Select(game => new
         {
             game.Id,

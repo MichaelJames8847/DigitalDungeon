@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getPlatformById } from "../../managers/platformManager";
 import { Card, CardBody, CardImg, CardTitle } from "reactstrap";
+import "./PlatformDetails.css"
 
 export default function PlatformDetails() {
-    const [platform, setPlatform] = useState([]);
+    const [platform, setPlatform] = useState({});
     const { id } = useParams();
 
     useEffect(() => {
@@ -13,6 +14,7 @@ export default function PlatformDetails() {
 
     return (
         <>
+        <div className="platform-details">
         <h2>Platform Details</h2>
         <Card>
             <CardBody>
@@ -25,6 +27,7 @@ export default function PlatformDetails() {
                     {new Date(platform.endYear).toLocaleDateString()}</p>}
             </CardBody>
         </Card>
+        </div>
         </>
     )
 }

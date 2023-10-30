@@ -4,6 +4,7 @@ import { getCategories } from "../../managers/categoryManager";
 import { getGamesBasedOnPreferences, getUserPreferences, updateUserPreferences } from "../../managers/userProfileManager";
 import { useNavigate } from "react-router-dom";
 import { Button, FormGroup, Input, Label } from "reactstrap";
+import "./UserEditPreferences.css"
 
 export default function UserEditPreferences() {
     const [genres, setGenres] = useState([]);
@@ -54,6 +55,7 @@ export default function UserEditPreferences() {
 
     return (
         <>
+        <div className="user-edit-preferences">
             <FormGroup>
                 <Label>Genres</Label>
                 {genres.map((genre) => (
@@ -87,6 +89,7 @@ export default function UserEditPreferences() {
             <Button color="primary" onClick={handleSubmit}>
                 Save Preferences
             </Button>
+            </div>
         </>
     );
 }

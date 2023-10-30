@@ -1,0 +1,50 @@
+/* PlatformList.css */
+
+.platform-list {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text color */
+    font-family: 'Trebuchet MS', Arial, sans-serif; /* Xbox-like font */
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .platform-list h2 {
+    color: #66ff66; /* Xbox green color for the heading */
+    margin-bottom: 2rem;
+  }
+  
+  .platform-list .platforms {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid layout */
+    gap: 1rem; /* Space between grid items */
+    padding: 0;
+  }
+  
+  .platform-list .platforms div {
+    background-color: #111; /* Slightly lighter black for each platform tile */
+    padding: 1rem;
+    border-radius: 0.5rem; /* Rounded corners for tiles */
+    transition: transform 0.3s ease;
+  }
+  
+  .platform-list .platforms img {
+    max-width: 100%; /* Ensure the image fits within the tile */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 0.5rem; /* Rounded corners for images */
+    margin-bottom: 1rem;
+  }
+  
+  .platform-list .platforms h3 {
+    color: #66ff66; /* Xbox green color for platform names */
+  }
+  
+  .platform-list .platforms div:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    background-color: #1a1a1a; /* Highlight tile on hover */
+  }
+  
+  .platform-list .platforms a {
+    text-decoration: none;
+    color: inherit; /* Links use the current text color */
+  }
+  
