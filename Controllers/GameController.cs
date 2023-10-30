@@ -71,16 +71,77 @@ public class GameController : ControllerBase
         // Set only the title and AdminApproval properties
         Game game = new Game
         {
-           Title = gameSuggestionDTO.Name,
-           AdminApproval = false,
-           CategoryId = 1, // Setting to 1 as a placeholder
-           GenreId = 1 // Setting to 1 as a placeholder
+            Title = gameSuggestionDTO.Name,
+            AdminApproval = false,
+            CategoryId = 1, // Setting to 1 as a placeholder to avoid foreign key restraint
+            GenreId = 1 // Setting to 1 as a placeholder
         };
 
         _dbContext.Games.Add(game);
         _dbContext.SaveChanges();
 
-        return Ok(new { Message = "Game suggestion received"} );
+        return Ok(new { Message = "Game suggestion received" });
+    }
+
+    [HttpGet("pending-suggestions")]
+    [Authorize(Roles = "Admin")]
+    public IActionResult GetPendingGameSuggestions()
+    {
+        var games = _dbContext.Games.Where(g => g.AdminApproval == false).ToList();
+        return Ok(games);
+    }
+
+    [HttpPost("approve/{id}")]
+    [Authorize(Roles = "Admin")]
+    public IActionResult ApproveGame(int id)
+    {
+        var game = _dbContext.Games.Find(id);
+        if (game == null)
+        {
+            return NotFound();
+        }
+        game.AdminApproval = true;
+        _dbContext.Games.Update(game);
+        _dbContext.SaveChanges();
+        return Ok(new { Message = "Game approved successfully!" });
+    }
+
+    [HttpPost("deny/{id}")]
+    [Authorize(Roles = "Admin")]
+    public IActionResult DenyGame(int id)
+    {
+        var game = _dbContext.Games.Find(id);
+        if (game == null)
+        {
+            return NotFound();
+        }
+        _dbContext.Games.Remove(game);
+        _dbContext.SaveChanges();
+        return Ok(new { Message = "Game denied and removed successfully!" });
+    }
+
+    [HttpPut("update/{gameId}")]
+    [Authorize(Roles = "Admin")]
+    public IActionResult UpdateGame(int id, [FromBody] GameUpdateDTO gameUpdateDTO)
+    {
+        var game = _dbContext.Games.Find(id);
+        if (game == null)
+        {
+            return NotFound();
+        }
+
+        game.CoverImage = gameUpdateDTO.CoverImage;
+        game.Description = gameUpdateDTO.Description;
+        game.ReleaseDate = gameUpdateDTO.ReleaseDate;
+        game.Developer = gameUpdateDTO.Developer;
+        game.GenreId = gameUpdateDTO.GenreId;
+        game.CategoryId = gameUpdateDTO.CategoryId;
+        game.AdminApproval = true;
+
+        _dbContext.Games.Update(game);
+        _dbContext.SaveChanges();
+
+        return Ok(game);
     }
 
 }

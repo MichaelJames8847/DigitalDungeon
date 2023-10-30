@@ -14,8 +14,9 @@ import UserProfileDetails from "./users/UserProfileDetails";
 import UserEditPreferences from "./users/UserEditPreferences";
 import GameSearch from "./games/GameSearch";
 import GameSuggestion from "./games/GameSuggestion";
-import AdminGameForm from "./games/AdminGameForm";
-import UserNotifications from "./users/UserNotifications";
+import AdminGameApproval from "./games/AdminGameApproval";
+
+
 
 export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
   return (
@@ -58,13 +59,6 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
             </AuthorizedRoute>
           }
           />
-          <Route path="notifications"
-          element={
-            <AuthorizedRoute loggedInUser={loggedInUser}>
-              <UserNotifications />
-            </AuthorizedRoute>
-          }
-          />
         </Route>
         <Route path="games">
           <Route index
@@ -81,6 +75,13 @@ export default function ApplicationViews({ loggedInUser, setLoggedInUser }) {
                 </AuthorizedRoute>
               }
               />
+              <Route path="approve"
+                element={
+                  <AuthorizedRoute roles={["Admin"]} loggedInUser={loggedInUser}>
+                    <AdminGameApproval />
+                  </AuthorizedRoute>
+                }
+                />
           <Route path=":id"
           element={
             <AuthorizedRoute loggedInUser={loggedInUser}>
