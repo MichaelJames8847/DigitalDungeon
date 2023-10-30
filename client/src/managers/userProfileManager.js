@@ -74,3 +74,7 @@ export const getUserPreferences = () => {
 export const getNotifications = () => {
     return fetch(`${apiUrl}/notifications`).then((r) => r.json());
 };
+
+export const getPurchaseLinks = () => {
+    return fetch(`${apiUrl}/games/purchase-links`).then((res) => res.json());
+};

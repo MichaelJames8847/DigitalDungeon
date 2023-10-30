@@ -285,4 +285,35 @@ public class UserProfileController : ControllerBase
         return Ok(preferences);
     }
 
+    [HttpGet("{id}/purchase-links")]
+    [Authorize]
+    public IActionResult GetPurchaseLinksForGames()
+    {
+        var purchaseLinks = new PurchaseLinkDTO
+        {
+            PC = "https://store.steampowered.com/",
+            Xbox = "https://www.dkoldies.com/original-xbox-games/",
+            Xbox360 = "https://marketplace.xbox.com/en-US/games/Xbox360Games",
+            XboxOne = "https://www.amazon.com/Xbox-One-Games/b?ie=UTF8&node=6469296011",
+            XboxSeriesX = "https://www.amazon.com/s?k=games+for+xbox+series+x&hvadid=657225112929&hvdev=c&hvlocphy=9012700&hvnetw=g&hvqmt=e&hvrand=7979474318198072207&hvtargid=kwd-851440928342&hydadcr=15512_13657504&tag=googhydr-20&ref=pd_sl_9985ndmwfw_e",
+            Playstation = "https://www.dkoldies.com/ps1-games/",
+            Playstation2 = "https://www.dkoldies.com/PS2-games/?gclid=Cj0KCQjwqP2pBhDMARIsAJQ0CzpP8FRfgbL9yIh0p3OMnk5IuKQfl8X4eElNkCM19-kTMHt45EfybWAaAnJGEALw_wcB",
+            Playstation3 = "https://www.amazon.com/s?k=playstation+3+games+for+sale&hvadid=557592300191&hvdev=c&hvlocphy=9012700&hvnetw=g&hvqmt=e&hvrand=10944284089934317497&hvtargid=kwd-297913046063&hydadcr=18919_13357695&tag=googhydr-20&ref=pd_sl_865rvb8mdy_e",
+            Playstation4 = "https://store.playstation.com/en-us/category/85448d87-aa7b-4318-9997-7d25f4d275a4/1",
+            Playstation5 = "https://store.playstation.com/en-us/category/d71e8e6d-0940-4e03-bd02-404fc7d31a31/1",
+            NintendoSwitch = "https://www.nintendo.com/sg/games/switch/index.html",
+            WiiU = "https://www.amazon.com/Wii-U-Games/s?k=Wii+U+Games",
+            SNES = "https://www.dkoldies.com/snes-games/",
+            SegaGenesis = "https://www.dkoldies.com/genesis/",
+            Nintendo64 = "https://www.dkoldies.com/nintendo-64/?gclid=Cj0KCQjwqP2pBhDMARIsAJQ0CzrvRFmEBPsIDrfuxiHt8DfI59CsDc9eNmFOLdTAZUXpM6_Z1ZKb8rIaAiRyEALw_wcB",
+            Mobile = "https://www.amazon.com/mobile-games/s?k=mobile+games",
+            Gamecube = "https://www.dkoldies.com/gamecube/?gclid=Cj0KCQjwqP2pBhDMARIsAJQ0CzpaLlZu7fpW1x1sdjzyO8V-baj9damVDIbUwChAQvdOQ_BMqP6KSsUaAia0EALw_wcB",
+            PSP = "https://www.dkoldies.com/psp-games/",
+            Dreamcast = "https://www.amazon.com/Games-Sega-Dreamcast-Systems/b?ie=UTF8&node=1065996",
+            SegaSaturn = "https://www.amazon.com/Sega-Saturn-Games/b?ie=UTF8&node=12508641",
+            GameBoyAdvance = "https://www.dkoldies.com/game-boy-advance-games/"
+        };
+
+        return Ok(purchaseLinks);
+    }
 }

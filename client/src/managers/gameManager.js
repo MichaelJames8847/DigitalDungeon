@@ -48,3 +48,4 @@ export const updateGameDetails = (id, gameDetails) => {
         body: JSON.stringify(gameDetails),
     }).then((res) => res.json());
 };
+
