@@ -2,11 +2,13 @@ import { useState } from "react";
 import { suggestGame } from "../../managers/gameManager";
 import { Button, Form, FormGroup, Input, Label, Modal, ModalBody, ModalHeader } from "reactstrap";
 import "./GameSuggestion.css"
+import { useNavigate } from "react-router-dom";
 
 export default function GameSuggestion() {
     const [title, setTitle] = useState("");
     const [modalOpen, setModalOpen] = useState(false);
     const [modalMessage, setModalMessage] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = async () => {
         try {
@@ -23,6 +25,11 @@ export default function GameSuggestion() {
         }
 
         setModalOpen(true);
+
+        setTimeout(() => {
+            setModalOpen(false);
+            navigate("/");
+        }, 3000);
     };
 
     return (

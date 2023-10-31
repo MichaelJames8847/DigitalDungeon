@@ -80,7 +80,7 @@ public class GameController : ControllerBase
         _dbContext.Games.Add(game);
         _dbContext.SaveChanges();
 
-        return Ok(new { Message = "Game suggestion received" });
+        return Ok(new { Message = "Your suggestion is pending approval. You will be notified once the admins review it." });
     }
 
     [HttpGet("pending-suggestions")]
