@@ -69,4 +69,10 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* optional: adds a subtle line between the image and card body */
 }
 
-/* Add any additional styles you need for layout, fonts, etc. */
+.user-games-list .card:hover,
+.user-games-list .card.dropdown-show {
+    z-index: 2000;
+}
+
+
+
