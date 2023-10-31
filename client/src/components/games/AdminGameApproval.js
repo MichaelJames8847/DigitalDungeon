@@ -65,7 +65,7 @@ export default function AdminGameApproval() {
     updateGameDetails(selectedGame.id, gameDetails).then(() => {
       alert('Game details updated and approved!');
       setPendingGames(pendingGames.filter(game => game.id !== selectedGame.id));
-      navigate('/');
+      navigate('/games');
     });
   };
 
@@ -73,7 +73,6 @@ export default function AdminGameApproval() {
     denyGame(gameId).then(() => {
       alert('Game denied');
       setPendingGames(pendingGames.filter(game => game.id !== gameId));
-      navigate('/');
     });
   };
 

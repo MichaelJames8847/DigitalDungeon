@@ -1893,7 +1893,9 @@ new Game
     ReleaseDate = DateTime.Parse("2003-06-17"),
     CoverImage = "https://www.giantbomb.com/a/uploads/scale_small/8/87790/1814881-box_dbztlog2.png",
     CategoryId = 1, // Fantasy
-    GenreId = 3   // RPG
+    GenreId = 3, // RPG
+    Developer = "Webfoot Technologies",
+    AdminApproval = true   
 },
 new Game
 {
@@ -1903,7 +1905,9 @@ new Game
     ReleaseDate = DateTime.Parse("2004-09-14"),
     CoverImage = "https://preview.redd.it/nrwhtr50v0t51.jpg?width=256&format=pjpg&auto=webp&s=894462d80ac59ad63eb4d78c2afd1643da3ea949",
     CategoryId = 1, // Fantasy
-    GenreId = 19  // Open World
+    GenreId = 19, // Open World
+    Developer = "Lionhead Studios",
+    AdminApproval = true  
 },
 new Game
 {
@@ -1913,7 +1917,9 @@ new Game
     ReleaseDate = DateTime.Parse("2010-10-26"),
     CoverImage = "https://upload.wikimedia.org/wikipedia/en/f/f1/Fableiii.jpg",
     CategoryId = 1, // Fantasy
-    GenreId = 19  // Open World
+    GenreId = 19, // Open World
+    Developer = "Lionhead Studios",
+    AdminApproval = true 
 }
 
 });

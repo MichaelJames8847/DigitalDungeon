@@ -13,4 +13,5 @@ public class GameUpdateDTO
     public Genre Genre { get; set; }
     public int CategoryId { get; set; }
     public Category Category { get; set; }
+    public List<int> PlatformIds { get; set; }
 }

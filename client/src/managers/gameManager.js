@@ -49,3 +49,13 @@ export const updateGameDetails = (id, gameDetails) => {
     }).then((res) => res.json());
 };
 
+export const deleteGame = (gameId) => {
+    return fetch(`${apiUrl}/${gameId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(gameId)
+    })
+};
+

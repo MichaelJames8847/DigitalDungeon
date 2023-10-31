@@ -20,7 +20,7 @@ public class GameController : ControllerBase
 
     public IActionResult GetGames()
     {
-        return Ok(_dbContext.Games.ToList());
+        return Ok(_dbContext.Games.Where(g => g.AdminApproval == true).ToList());
     }
 
     [HttpGet("{id}")]
@@ -101,7 +101,6 @@ public class GameController : ControllerBase
             return NotFound();
         }
         game.AdminApproval = true;
-        _dbContext.Games.Update(game);
         _dbContext.SaveChanges();
         return Ok(new { Message = "Game approved successfully!" });
     }
@@ -122,9 +121,9 @@ public class GameController : ControllerBase
 
     [HttpPut("update/{gameId}")]
     [Authorize(Roles = "Admin")]
-    public IActionResult UpdateGame(int id, [FromBody] GameUpdateDTO gameUpdateDTO)
+    public IActionResult UpdateGame(int gameId, [FromBody] GameUpdateDTO gameUpdateDTO)
     {
-        var game = _dbContext.Games.Find(id);
+        var game = _dbContext.Games.Find(gameId);
         if (game == null)
         {
             return NotFound();
@@ -138,10 +137,42 @@ public class GameController : ControllerBase
         game.CategoryId = gameUpdateDTO.CategoryId;
         game.AdminApproval = true;
 
+        if (gameUpdateDTO.PlatformIds != null)
+        {
+            game.Platforms.Clear();
+
+            foreach (var platformId in gameUpdateDTO.PlatformIds)
+            {
+                var platform = _dbContext.Platforms.Find(platformId);
+                if (platform != null)
+                {
+                    game.Platforms.Add(platform);
+                }
+            }
+        }
+        
         _dbContext.Games.Update(game);
         _dbContext.SaveChanges();
 
         return Ok(game);
     }
 
+    [HttpDelete("{gameId}")]
+    [Authorize(Roles = "Admin")]
+    public IActionResult DeleteGame(int gameId)
+    {
+        Game game = _dbContext.Games.SingleOrDefault(g => g.Id == gameId);
+        if (game == null)
+        {
+            return NotFound();
+        }
+        else if (gameId != game.Id)
+        {
+            return BadRequest();
+        }
+
+        _dbContext.Games.Remove(game);
+        _dbContext.SaveChanges();
+        return NoContent();
+    }
 }

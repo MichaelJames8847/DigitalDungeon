@@ -1915,9 +1915,11 @@ namespace DigitalDungeon.Migrations
                         new
                         {
                             Id = 148,
+                            AdminApproval = true,
                             CategoryId = 1,
                             CoverImage = "https://www.giantbomb.com/a/uploads/scale_small/8/87790/1814881-box_dbztlog2.png",
                             Description = "Continue the DBZ saga, spanning from the Frieza saga to the end of the Cell Games.",
+                            Developer = "Webfoot Technologies",
                             GenreId = 3,
                             ReleaseDate = new DateTime(2003, 6, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Dragon Ball Z: The Legacy of Goku II"
@@ -1925,9 +1927,11 @@ namespace DigitalDungeon.Migrations
                         new
                         {
                             Id = 149,
+                            AdminApproval = true,
                             CategoryId = 1,
                             CoverImage = "https://preview.redd.it/nrwhtr50v0t51.jpg?width=256&format=pjpg&auto=webp&s=894462d80ac59ad63eb4d78c2afd1643da3ea949",
                             Description = "In a fantasy world, grow from a young boy into a legendary hero. Every choice impacts your path, reputation, and the evolution of the world around you.",
+                            Developer = "Lionhead Studios",
                             GenreId = 19,
                             ReleaseDate = new DateTime(2004, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Fable"
@@ -1935,9 +1939,11 @@ namespace DigitalDungeon.Migrations
                         new
                         {
                             Id = 150,
+                            AdminApproval = true,
                             CategoryId = 1,
                             CoverImage = "https://upload.wikimedia.org/wikipedia/en/f/f1/Fableiii.jpg",
                             Description = "Lead a revolution to take control of Albion, then make choices as king or queen that will lead to a thriving nation or its downfall.",
+                            Developer = "Lionhead Studios",
                             GenreId = 19,
                             ReleaseDate = new DateTime(2010, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Fable III"
@@ -5821,7 +5827,7 @@ namespace DigitalDungeon.Migrations
                         new
                         {
                             Id = "c3aaeb97-d2ba-4a53-a521-4eea61e59b35",
-                            ConcurrencyStamp = "1447af99-0a5a-4a1b-b0a5-7ba8aaa3747e",
+                            ConcurrencyStamp = "07e7a8df-c87a-43ba-8e70-761dfaec5a69",
                             Name = "Admin",
                             NormalizedName = "admin"
                         });
@@ -5920,13 +5926,13 @@ namespace DigitalDungeon.Migrations
                         {
                             Id = "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d41e54ae-3ea5-408a-817b-37036684980e",
+                            ConcurrencyStamp = "8539b938-9c0d-4ea1-bab6-3b20d2167f9a",
                             Email = "admina@strator.comx",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEJFipHCzdBGBI57D3NNTSyLaZC/6razV56abnjIG5MohskC/gT0F1AZfCCS3H7aosg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKRfVATHOLxWUSdBvbuwNA2mxDtHa8EwvVZAUaZaJYg0VXv2dwjl8wIww4XJznyAtA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5465bf6a-3302-42c8-a5a9-113b92de1be8",
+                            SecurityStamp = "b68cabb7-d71a-4afc-b185-45d9d3134518",
                             TwoFactorEnabled = false,
                             UserName = "Administrator"
                         });

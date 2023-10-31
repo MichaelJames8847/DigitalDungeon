@@ -449,12 +449,12 @@ namespace DigitalDungeon.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "c3aaeb97-d2ba-4a53-a521-4eea61e59b35", "1447af99-0a5a-4a1b-b0a5-7ba8aaa3747e", "Admin", "admin" });
+                values: new object[] { "c3aaeb97-d2ba-4a53-a521-4eea61e59b35", "07e7a8df-c87a-43ba-8e70-761dfaec5a69", "Admin", "admin" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f", 0, "d41e54ae-3ea5-408a-817b-37036684980e", "admina@strator.comx", false, false, null, null, null, "AQAAAAEAACcQAAAAEJFipHCzdBGBI57D3NNTSyLaZC/6razV56abnjIG5MohskC/gT0F1AZfCCS3H7aosg==", null, false, "5465bf6a-3302-42c8-a5a9-113b92de1be8", false, "Administrator" });
+                values: new object[] { "dbc40bc6-0829-4ac5-a3ed-180f5e916a5f", 0, "8539b938-9c0d-4ea1-bab6-3b20d2167f9a", "admina@strator.comx", false, false, null, null, null, "AQAAAAEAACcQAAAAEKRfVATHOLxWUSdBvbuwNA2mxDtHa8EwvVZAUaZaJYg0VXv2dwjl8wIww4XJznyAtA==", null, false, "b68cabb7-d71a-4afc-b185-45d9d3134518", false, "Administrator" });
 
             migrationBuilder.InsertData(
                 table: "Categories",
@@ -693,9 +693,9 @@ namespace DigitalDungeon.Migrations
                     { 145, true, 18, "https://cubiccreativity.files.wordpress.com/2022/02/pokemon-red-and-blue-header.jpg", "The original Pokemon games that introduced the world to the beloved franchise, allowing players to capture, train, and battle Pokemon.", "Game Freak", 3, new DateTime(1996, 2, 27, 0, 0, 0, 0, DateTimeKind.Unspecified), "Pokemon Red/Blue" },
                     { 146, true, 5, "https://upload.wikimedia.org/wikipedia/en/8/8f/Metal_Gear_Solid_V_The_Phantom_Pain_cover.png", "An open-world stealth game following Venom Snake as he seeks revenge against those who destroyed his forces during the events of Ground Zeroes.", "Kojima Productions", 1, new DateTime(2015, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Metal Gear Solid V: The Phantom Pain" },
                     { 147, true, 2, "https://imageio.forbes.com/specials-images/imageserve/6516be8aa27b6dd6a0e67651/kotor2/960x0.png?format=png&width=1440", "A role-playing game set in the Star Wars universe, taking place thousands of years before the original films, allowing players to shape the fate of the galaxy.", "BioWare", 3, new DateTime(2003, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "Star Wars: Knights of the Old Republic" },
-                    { 148, null, 1, "https://www.giantbomb.com/a/uploads/scale_small/8/87790/1814881-box_dbztlog2.png", "Continue the DBZ saga, spanning from the Frieza saga to the end of the Cell Games.", null, 3, new DateTime(2003, 6, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), "Dragon Ball Z: The Legacy of Goku II" },
-                    { 149, null, 1, "https://preview.redd.it/nrwhtr50v0t51.jpg?width=256&format=pjpg&auto=webp&s=894462d80ac59ad63eb4d78c2afd1643da3ea949", "In a fantasy world, grow from a young boy into a legendary hero. Every choice impacts your path, reputation, and the evolution of the world around you.", null, 19, new DateTime(2004, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), "Fable" },
-                    { 150, null, 1, "https://upload.wikimedia.org/wikipedia/en/f/f1/Fableiii.jpg", "Lead a revolution to take control of Albion, then make choices as king or queen that will lead to a thriving nation or its downfall.", null, 19, new DateTime(2010, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), "Fable III" }
+                    { 148, true, 1, "https://www.giantbomb.com/a/uploads/scale_small/8/87790/1814881-box_dbztlog2.png", "Continue the DBZ saga, spanning from the Frieza saga to the end of the Cell Games.", "Webfoot Technologies", 3, new DateTime(2003, 6, 17, 0, 0, 0, 0, DateTimeKind.Unspecified), "Dragon Ball Z: The Legacy of Goku II" },
+                    { 149, true, 1, "https://preview.redd.it/nrwhtr50v0t51.jpg?width=256&format=pjpg&auto=webp&s=894462d80ac59ad63eb4d78c2afd1643da3ea949", "In a fantasy world, grow from a young boy into a legendary hero. Every choice impacts your path, reputation, and the evolution of the world around you.", "Lionhead Studios", 19, new DateTime(2004, 9, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), "Fable" },
+                    { 150, true, 1, "https://upload.wikimedia.org/wikipedia/en/f/f1/Fableiii.jpg", "Lead a revolution to take control of Albion, then make choices as king or queen that will lead to a thriving nation or its downfall.", "Lionhead Studios", 19, new DateTime(2010, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified), "Fable III" }
                 });
 
             migrationBuilder.InsertData(
