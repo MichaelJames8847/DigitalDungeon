@@ -19,6 +19,14 @@
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
 }
 
+.user-games-list .card-title {
+    color: #fff;
+}
+
+.user-games-list .rating {
+    color: #fff;
+}
+
 .user-games-list .card img {
     transition: transform 0.3s ease-in-out;
 }
@@ -74,5 +82,28 @@
     z-index: 2000;
 }
 
+/* UserGamesList.css */
+.rating {
+    display: flex;
+  }
+  
+  .controller {
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-right: 10px;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+  }
+  .controller:hover {
+    opacity: 0.7;  /* give a hover effect for a more interactive feel */
+}
 
+  .controller:last-child {
+    margin-right: 0;
+  }
+  
+  .controller.selected {
+    opacity: 1;
+  }
+  
 

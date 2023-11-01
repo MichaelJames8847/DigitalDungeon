@@ -1,0 +1,50 @@
+/* Background Gradient from light grey to darker grey, reminiscent of the PS1 console texture */
+body {
+    background: linear-gradient(to bottom, #e0e0e0, #a9a9a9);
+    font-family: 'Arial', sans-serif; /* Placeholder. Replace with PlayStation-like font if available */
+}
+
+.user-register-preferences {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.75); /* Slightly transparent black background */
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.user-register-preferences label {
+    display: block;
+    color: #fff;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.user-register-preferences label:hover {
+    color: #007bff; /* PlayStation blue when hovering */
+}
+
+.user-register-preferences input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Animating the Save Preferences button */
+.user-register-preferences button {
+    background: #007bff; /* PlayStation blue */
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.user-register-preferences button:hover {
+    background: #0056b3; /* Darker blue on hover */
+    transform: translateY(-3px);
+}
+
+.user-register-preferences button:active {
+    transform: translateY(0);
+}

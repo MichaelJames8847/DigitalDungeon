@@ -11,7 +11,13 @@ export default function UserGamesList() {
 
   useEffect(() => {
     getGamesBasedOnPreferences()
-      .then(setSuggestedGames)
+      .then(games => {
+        const gamesWithRatings = games.map(game => ({
+          ...game,
+          rating: Math.floor(Math.random() * 5) + 1  // assigning random rating from 1 to 5
+        }));
+        setSuggestedGames(gamesWithRatings);
+      })
       .catch((error) => {
         console.error("Error fetching games based on preferences", error);
         setError("An error occurred while fetching games based on preferences");
@@ -37,43 +43,67 @@ export default function UserGamesList() {
 
   const toggleDropdown = (gameId) => {
     setDropdownOpen(prevState => ({
-        ...prevState,
-        [gameId]: !prevState[gameId]
+      ...prevState,
+      [gameId]: !prevState[gameId]
     }));
   };
 
+  const setGameRating = (gameId, rating) => {
+    const updatedGames = suggestedGames.map(game => {
+      if (game.id === gameId) {
+        game.rating = rating;
+      }
+      return game;
+    });
+    setSuggestedGames(updatedGames);
+  };
+
+
+
   return (
     <>
-    <div className='user-games-list'>
-      {error && <div className="error-message">{error}</div>}
-      <CardDeck>
-        {suggestedGames.map((game) => (
-          <Card key={game.id}>
-            <CardImg top width="100%" src={game.coverImage} alt={game.title} />
-            <CardBody>
-              <CardTitle tag="h5">{game.title}</CardTitle>
-              <CardText>{game.description}</CardText>
-              {purchaseLinks && (
-                <Dropdown isOpen={dropdownOpen[game.id]} toggle={() => toggleDropdown(game.id)}>
-                  <DropdownToggle caret color="primary">
-                    Buy Now
-                  </DropdownToggle>
-                  <DropdownMenu>
-                    {Object.entries(purchaseLinks).map(([platform, url]) => (
-                      <DropdownItem key={platform} onClick={() => handleBuyNowClick(url)}>
-                        {platform.replace(/([A-Z])/g, ' $1').trim()} {/* Adds space before capital letters */}
-                      </DropdownItem>
-                    ))}
-                  </DropdownMenu>
-                </Dropdown>
-              )}
-              <Button color="secondary" onClick={() => removeSuggestedGame(game.id)}>
-                Remove From Suggestions
-              </Button>
-            </CardBody>
-          </Card>
-        ))}
-      </CardDeck>
+      <div className='user-games-list'>
+        {error && <div className="error-message">{error}</div>}
+        <CardDeck>
+          {suggestedGames.map((game) => (
+            <Card key={game.id}>
+              <CardImg top width="100%" src={game.coverImage} alt={game.title} />
+              <CardBody>
+                <CardTitle tag="h5">{game.title}</CardTitle>
+                <CardText>{game.description}</CardText>
+                <div className="rating">
+                  My Rating:
+                  {Array(5).fill().map((_, index) => (
+                    <span
+                      key={index}
+                      className={`controller ${game.rating > index ? 'selected' : ''}`}
+                      onClick={() => setGameRating(game.id, index + 1)}
+                    > 
+                     🎮
+                    </span>
+                  ))}
+                </div>
+                {purchaseLinks && (
+                  <Dropdown isOpen={dropdownOpen[game.id]} toggle={() => toggleDropdown(game.id)}>
+                    <DropdownToggle caret color="primary">
+                      Buy Now
+                    </DropdownToggle>
+                    <DropdownMenu>
+                      {Object.entries(purchaseLinks).map(([platform, url]) => (
+                        <DropdownItem key={platform} onClick={() => handleBuyNowClick(url)}>
+                          {platform.replace(/([A-Z])/g, ' $1').trim()}
+                        </DropdownItem>
+                      ))}
+                    </DropdownMenu>
+                  </Dropdown>
+                )}
+                <Button color="secondary" onClick={() => removeSuggestedGame(game.id)}>
+                  Remove From Suggestions
+                </Button>
+              </CardBody>
+            </Card>
+          ))}
+        </CardDeck>
       </div>
     </>
   );

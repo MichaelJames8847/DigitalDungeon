@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink as RRNavLink } from "react-router-dom";
+import { NavLink as RRNavLink } from "react-router-dom";
 import {
     Button,
     Collapse,
@@ -59,10 +59,13 @@ export default function NavBar({ loggedInUser, setLoggedInUser }) {
                                 <NavLink tag={RRNavLink} to="/userprofile/preferences">
                                     Edit Preferences
                                 </NavLink>
-                                <NavItem onClick={() => setOpen(false)} />
+                                {!loggedInUser.roles.includes("Admin") && (
+                                <NavItem onClick={() => setOpen(false)}>
                                 <NavLink tag={RRNavLink} to="/games/submit-game-request">
                                     Submit Game Request
                                 </NavLink>
+                                </NavItem>
+                                )}
                                 {loggedInUser.roles.includes("Admin") && (
                                     <NavItem onClick={() => setOpen(false)}>
                                         <NavLink tag={RRNavLink} to="/games/approve">

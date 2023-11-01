@@ -4,6 +4,7 @@ import { getCategories } from "../../managers/categoryManager";
 import { setUserPreferences } from "../../managers/userProfileManager";
 import { useNavigate } from "react-router-dom";
 import { Button, FormGroup, Input, Label } from "reactstrap";
+import "./UserRegisterPreferences.css"
 
 export default function UserRegisterPreferences() {
     const [genres, setGenres] = useState([]);
@@ -45,6 +46,7 @@ export default function UserRegisterPreferences() {
 
     return (
         <>
+        <div className="user-register-preferences">
             <FormGroup>
                 <Label>Genres</Label>
                 {genres.map((genre) => (
@@ -78,6 +80,7 @@ export default function UserRegisterPreferences() {
             <Button color="primary" onClick={handleSubmit}>
                 Save Preferences
             </Button>
+            </div>
         </>
     );
 }
