@@ -49,10 +49,10 @@ export default function AdminGameApproval() {
       developer: game.developer || '',
       genreId: game.genreId,
       categoryId: game.categoryId,
-      platforms: game.platforms ? game.platforms.map((platform) => platform.id) : [], // Assuming 'platforms' is an array of platform objects
+      platforms: game.platforms ? game.platforms.map((platform) => platform.id) : [],
     });
   };
-
+ 
   const handleChange = (e) => {
     setGameDetails({
       ...gameDetails,

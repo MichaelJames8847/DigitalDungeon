@@ -8,7 +8,6 @@ Primary Features
     Submit Game Requests: Suggest new games to be added to the database and track their approval status.
     Update Preferences: Modify your gaming preferences to get fresh and tailored game suggestions.
     Admin Features: Admins can view user details, promote/demote users, and approve/deny game addition requests.
-    Notifications: Receive notifications as an admin for user suggestions and approve/deny them.
 
 Target Audience
 
@@ -70,21 +69,13 @@ Admin Promote/Demote User:
 
 Admin Approve/Deny Game Requests:
 
-    Admins receive notifications for new game suggestions.
     Click on the notification to view and approve/deny requests.
 
 Stretch Goals
-Rotating Game Recommendations:
-
-    See a list of rotating "Games you might like" on the main profile page.
 
 Purchase Link:
 
     Click on "Purchase here" to navigate to a platform for buying the recommended game.
-
-Demo Video:
-
-    View a short demo video of the recommended game.
 
 Game Search:
 

@@ -25,7 +25,7 @@ export default function GameDetails() {
                 <ListGroup flush className="text-light">
                     <ListGroupItem className="bg-dark">Genre: {game.genre?.genreName}</ListGroupItem>
                     <ListGroupItem className="bg-dark">Category: {game.category?.categoryName}</ListGroupItem>
-                    <ListGroupItem className="bg-dark">Release Date: {game.released}</ListGroupItem>
+                    <ListGroupItem className="bg-dark">Release Date: {new Date(game.released).toLocaleDateString()}</ListGroupItem>
                     <ListGroupItem className="bg-dark">Developer: {game.developer}</ListGroupItem>
                 </ListGroup>
                 <CardSubtitle tag="h6" className="mt-3 mb-2 text-muted">Platforms</CardSubtitle>
