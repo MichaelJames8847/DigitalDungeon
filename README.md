@@ -1,5 +1,13 @@
 # DigitalDungeon
 DigitalDungeon - Your Personalized Gaming Experience
+
+In order to run DigitalDungeon from your local machine:
+Clone Github repo,
+Start the debugger (F5 or the "play" icon on the left hand side of the sidebar),
+cd into client folder,
+run npm start,
+Enjoy!
+
 Primary Features
 
     User Registration and Preferences: Register as a user, set up your gaming preferences, and upload your profile picture.
